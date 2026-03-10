@@ -1,0 +1,77 @@
+[
+  {
+    "name": "SIG任务专区",
+    "list": [
+      {
+        "name": "MindSpore Usability SIG",
+        "desc": "MindSpore Usability SIG专注于推动MindSpore易用性。该小组由华为MindSpore核心开发团队、学术界专家及社区开发者共同组成，致力于提升MindSpore开发者体验。",
+        "href": "https://atomgit.com/mindspore/community/issues/2071"
+      },
+      {
+        "name": "MindSpore Quantum SIG",
+        "desc": "MindSpore Quantum致力于和开发者共同打造灵活高效、易学易用的量子计算框架，持续提升MindSpore Quantum功能、性能和易用性，助力量子计算技术研究和创新。",
+        "href": "https://atomgit.com/mindspore/community/issues/2059"
+      },
+      {
+        "name": "MindSpore PyNative SIG",
+        "desc": "MindSpore PyNative SIG专注于推动MindSpore动态图模式的研发与优化，致力于提升动态图模式的性能、灵活性和易用性，以满足深度学习领域对快速开发、调试、执行等的需求。",
+        "href": "https://atomgit.com/mindspore/community/issues/2068"
+      },
+      {
+        "name": "LLM Inference Serving SIG",
+        "desc": "MindSpore大模型推理服务组致力于实现vLLM等开源推理服务框架与MindSpore推理能力的兼容互通，通过整合二者技术长板，提供高性能、易用的大模型推理服务能力。",
+        "href": "https://atomgit.com/mindspore/community/issues/1787"
+      },
+      {
+        "name": "MindSpore Science SIG",
+        "desc": "MindSpore Science SIG旨在与广大开发者共同将AI与科学计算相结合，助力科学计算借助AI的强大计算能力，探索未知领域，提升计算效率和准确性，更好地应对复杂的科学计算问题。",
+        "href": "https://atomgit.com/mindspore/community/issues/2027"
+      },
+      {
+        "name": "Heterogeneous Fusion SIG",
+        "desc": "基于MindSpore构建开放的南向接口，协同业界厂商和学术机构，构建异构融合加速能力和使能全场景部署与应用。",
+        "href": "https://atomgit.com/mindspore/community/issues/1786"
+      },
+      {
+        "name": "MindSpore Lite SIG",
+        "desc": "MindSpore Lite SIG注于端侧AI的部署优化。该小组由昇思MindSpore核心开发团队、学术界专家及社区开发者共同组成，致力于构建极速、极智、极简的端侧AI引擎，使能全场景智能应用，帮助用户使能AI能力。",
+        "href": "https://atomgit.com/mindspore/community/issues/1783"
+      },
+      {
+        "name": "MindSpore Transformers SIG",
+        "desc": "MindSpore Transformers SIG是 MindSpore 开源社区下聚焦 Transformer 类大模型全流程开发与优化的技术团队，涵盖大模型的预训练、微调、推理与部署等关键环节。SIG 团队致力于提升 Transformer类大模型在性能与易用性方面的表现，推动其在实际场景中的高效应用与落地。",
+        "href": "https://atomgit.com/mindspore/community/issues/1789"
+      }
+    ]
+  },
+  {
+    "name": "专项任务",
+    "list": [
+      {
+        "name": "香橙派开发板应用开发任务",
+        "desc": "基于MindSpore NLP仓已有模型，开发可在香橙派AIpro或其他同硬件的开发板运行的应用。模型参数规模在4B以下，或者模型权重文件大小小于4GB。完整实现相应的功能，并在AIpro或其他同硬件的开发板上运行流畅。",
+        "href": "https://atomgit.com/mindspore/community/issues/1752"
+      },
+      {
+        "name": "香橙派mint接口开发任务",
+        "desc": "香橙派github仓中在线推理案例基于MindSpore2.6.0的PyNative模式下可以在香橙派开发板正常流畅运行。任务完成提交PR时同步修改下代码仓README的本案例对应版本信息。",
+        "href": "https://atomgit.com/mindspore/community/issues/1750"
+      },
+      {
+        "name": "MindSpore NLP",
+        "desc": "MindSpore NLP套件是基于MindSpore的全领域自然语言处理套件，提供了自然语言处理各子领域的经典数据集，经典模型结构、Transformer-based模型等大量实用模块。",
+        "href": "https://atomgit.com/mindspore/community/issues/965"
+      },
+      {
+        "name": "MindSpore Trusted AI",
+        "desc": "Trusted AI 聚焦于AI模型开发项目中从数据处理到模型训练再到部署推理过程中的安全问题。主要探讨：1.模型鲁棒性和可靠性;2.隐私保护;3.模型部署安全。",
+        "href": "https://atomgit.com/mindspore/community/issues/2060"
+      },
+      {
+        "name": "MindSpore技术公开课应用开发任务",
+        "desc": "测试课程内容代码，检视在文件创建时期的MindSpore NLP在昇思MindSpore发行最新版本是否可以跑通，对原版代码进行调试确保精度达标。",
+        "href": "https://atomgit.com/mindspore/community/issues/2018"
+      }
+    ]
+  }
+]

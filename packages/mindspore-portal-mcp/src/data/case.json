@@ -1,0 +1,218 @@
+[
+  {
+    "type": "企业案例",
+    "category": "互联网",
+    "title": "详解HEBO算法",
+    "desc": "HEBO算法是华为诺亚实验室提出的优化算法框架。该算法击败NVIDIA，IBM等赢得了AI国际顶会NeurIPS 2020的黑盒优化竞赛冠军。该算法提出了对代理模型和最大化获取函数的非常规修改，并显示了这种组合优于Bayesmark包提供的所有基线。",
+    "technologies": ["黑盒优化", "HEBO"],
+    "href": "https://mp.weixin.qq.com/s?__biz=MzkxMTM2MjMzNg==&mid=2247582836&idx=1&sn=4c34412279c6c7af5e46096b0222d593&source=41#wechat_redirect"
+  },
+  {
+    "type": "企业案例",
+    "category": "医疗",
+    "title": "完全自主分子模拟软件",
+    "desc": "由深圳湾实验室、北京大学化学与分子工程学院高毅勤课题组与华为MindSpore团队联合开发的分子模拟库(SPONGE)，具有高性能、模块化等特性，易于领域研发人员进行理论和算法的快速实现，推动人工智能与分子模拟的自然融合。",
+    "technologies": ["分子模拟", "人工智能"],
+    "href": "https://www.mindspore.cn/news/detail?id=562"
+  },
+  {
+    "type": "企业案例",
+    "category": "互联网",
+    "title": "盘古α中文预训练大模型",
+    "desc": "”鹏城云脑Ⅱ”E级智算平台，基于国产MindSpore框架和昇腾软硬件栈的2000亿参数盘古α模型是我们在超大规模AI模型上迈出的里程碑式的一步，团队第一次实现了基于华为软硬件全栈式的超大规模模型的分布式训练。",
+    "technologies": ["大模型", "分布式训练"],
+    "href": "https://www.mindspore.cn/news/detail?id=561"
+  },
+  {
+    "type": "企业案例",
+    "category": "安防",
+    "title": "成都佳华物链云智慧园区应急厅AI",
+    "desc": "成都佳华物链云推出的智慧园区应急厅AI系统V1.0，基于全场景AI计算框架MindSpore，通过物联网、大数据、人工智能等信息技术，利用昇腾提供的算力支撑，整合园区的信息资源，有效提高园区环境质量水平和安全体系保障，实现管理精细化、决策科学化、服务高效化。",
+    "technologies": ["物联网", "人工智能"],
+    "href": "https://www.mindspore.cn/news/detail?id=563"
+  },
+  {
+    "type": "企业案例",
+    "category": "互联网",
+    "title": "HUAWEI SiteAI",
+    "desc": "HUAWEI SiteAI基于MindSpore Lite高性能AI引擎，面向网元设备构建管理平台、数据平台、引擎平台的领域AI能力，提供领先的轻量高效、安全易用、三层协同的嵌入式AI平台，使能网元智能化和自动驾驶平台。",
+    "technologies": ["AI引擎", "嵌入式"],
+    "href": ""
+  },
+  {
+    "type": "企业案例",
+    "category": "互联网",
+    "title": "HUAWEI HiAI",
+    "desc": "HUAWEI HiAI是面向智能终端的AI能力开放平台，基于“芯、端、云”三层开发架构，MindSpore Lite作为HUAWEI HiAI Engine基础AI引擎，提供丰富的、开箱即用的AI能力，让开发者轻松将多种AI能力和APP结合，让APP更加智能强大。",
+    "technologies": ["AI引擎", "APP"],
+    "href": "https://developer.huawei.com/consumer/cn/hiai"
+  },
+  {
+    "type": "企业案例",
+    "category": "政府",
+    "title": "互联网内容风控智能化",
+    "desc": "人民中科智能技术有限公司基于MindSpore+Ascend AI处理器构建AI中台，对于每日5000万条级别的内容互联网内容进行智能审核，效率远超人工审核。其中综合使用了包括目标检测、场景识别、情感识别、多模态识别等算法模型，能胜任完成95%以上内容审核工作，达到人工审核初级水平。",
+    "technologies": ["内容审核", "Ascend"],
+    "href": ""
+  },
+  {
+    "type": "企业案例",
+    "category": "互联网",
+    "title": "华为机器学习服务",
+    "desc": "华为机器学习服务（HUAWEI ML Kit）是HMS提供的一套机器学习套件，基于MindSpore Lite提供丰富的文本类、语音语言类、图像类和人脸人体类服务API，助力开发者更快更好地开发各类AI应用。",
+    "technologies": ["机器学习", "应用"],
+    "href": "https://developer.huawei.com/consumer/cn/hms/huawei-mlkit/"
+  },
+  {
+    "type": "企业案例",
+    "category": "政府",
+    "title": "全国产AI中台解决方案",
+    "desc": "中科弘云携手MindSpore推出全国产化人工智能平台解决方案，集成多种视觉计算场景下的高精度算法，提供数据预处理及协同标注、自动化模型训练与推理服务，及端-边-云模型按需部署能力，帮助用户快速创建和部署模型，管理全周期AI工作流。",
+    "technologies": ["ISV", "自动并行", "深度学习"],
+    "href": "https://www.mindspore.cn/news/detail?id=418"
+  },
+  {
+    "type": "开发者案例",
+    "category": "创新训练营",
+    "title": "新闻情感播报",
+    "desc": "昇思创新训练营（长三角站）优秀作品，基于昇思MindSpore进行大模型微调及调用模型API服务，完成新闻检索-新闻稿内容情感分类-带感情语音播报的全流程实践。",
+    "technologies": ["LLM"],
+    "href": "https://github.com/sunnyxrxrx/Emotional-News-Anchor"
+  },
+  {
+    "type": "开发者案例",
+    "category": "社区开源",
+    "title": "ResNet50中药饮片质量分析",
+    "desc": "基于MindSpore的ResNet50中药饮片分类案例，覆盖从数据处理、模型开发、模型训练、模型推理全流程，相比于传统方式的人工经验判断，通过神经网络区分蒲黄、山楂、王不留行三种中药的四种炮制状态。",
+    "technologies": ["CV"],
+    "href": "https://github.com/mindspore-lab/applications/blob/r2.7/cv/resnet/train_resnet_classification.ipynb"
+  },
+  {
+    "type": "开发者案例",
+    "category": "社区实习",
+    "title": "DDPM 扩散模型",
+    "desc": "基于MindSpore NLP的DDPM图像生成案例，详细展示了去噪扩散概率模型（DDPM）的完整训练与推理流程，帮助开发者快速理解扩散模型原理并构建自己的生成式AI训练Pipeline。",
+    "technologies": ["Diffusion"],
+    "href": "https://github.com/mindspore-lab/applications/blob/r2.7/diffusion/ddpm/train_ddpm_generation.ipynb"
+  },
+  {
+    "type": "开发者案例",
+    "category": "创新训练营",
+    "title": "结构化信息提取系统",
+    "desc": "昇思创新训练营（西北站）优秀作品，基于MindSpore NLP的通用信息抽取微调案例，详细展示了如何利用LoRA微调，从非结构化文本中抽取符合自定义的结构化信息。项目提供完整的训练、推理与Gradio可视化前端，支持预定义或用户自定义抽取模式，帮助开发者快速构建面向特定领域的信息抽取系统。",
+    "technologies": ["LLM"],
+    "href": "https://gitee.com/jinxiaoxiao2025/openie"
+  },
+  {
+    "type": "开发者案例",
+    "category": "创新训练营",
+    "title": "智能医疗分诊系统",
+    "desc": "昇思创新训练营（西北站）优秀作品，基于 MindSpore NLP 的智能医疗分诊案例，通过 LoRA 高效微调实现支持思维链推理（CoT）的科室推荐系统，可输出“症状理解 → 患者画像 → 系统定位 → 科室匹配”四步推理过程，帮助开发者构建可落地的垂直领域大模型应用。",
+    "technologies": ["LLM"],
+    "href": "https://github.com/superjingshen/MindSpore-5-/tree/main"
+  },
+  {
+    "type": "开发者案例",
+    "category": "创新训练营",
+    "title": "智能旅游助手",
+    "desc": "昇思创新训练营（华中站）优秀作品，基于昇思MindSpore进行大模型微调及使用RAG技术，完成一个能够为游客提供个性化旅游信息的智能助手的全流程实践。",
+    "technologies": ["LLM"],
+    "href": "https://github.com/MUMU46/Travel-Assistant-based-on-mindspore"
+  },
+  {
+    "type": "开发者案例",
+    "category": "创新训练营",
+    "title": "中文法律问答助手",
+    "desc": "昇思创新训练营（西北站）优秀作品，基于 MindSpore NLP 的中文法律问答 LoRA 微调案例，项目支持从 JSON 指令数据训练适配器、一键合并全量权重、命令行流式推理及 Gradio WebUI 交互，完整覆盖法律领域大模型的微调、部署与应用全流程。",
+    "technologies": ["LLM"],
+    "href": "https://github.com/tt5416/law_lora_mindspore/tree/main"
+  },
+  {
+    "type": "开发者案例",
+    "category": "社区实习",
+    "title": "DistilGPT-2文本生成",
+    "desc": "基于 MindSpore 与 MindSpore NLP 的 DistilGPT-2 自回归语言模型微调案例，完整展示了环境配置、数据加载与动态批处理、模型加载、自定义 Trainer 训练、文本生成推理及模型保存加载等环节，为构建 LLM 微调 pipeline 提供实践范例。",
+    "technologies": ["LLM"],
+    "href": "https://github.com/mindspore-lab/applications/blob/r2.7/llm/distilgpt2/finetune_distilgpt2_language_modeling.ipynb"
+  },
+  {
+    "type": "开发者案例",
+    "category": "社区实习",
+    "title": "WaveNet音乐生成",
+    "desc": "基于 MindSpore 的 WaveNet 神经音频生成案例，完整展示了从原始语音数据预处理、模型构建、训练到音频合成的全流程，能够生成高质量的自然语音波形。",
+    "technologies": ["Audio"],
+    "href": "https://github.com/mindspore-lab/applications/blob/r2.7/audio/wavenet/train_wavenet_audio_generation.ipynb"
+  },
+  {
+    "type": "开发者案例",
+    "category": "社区实习",
+    "title": "SAM 图像分割",
+    "desc": "基于 MindSpore和MindSpore NLP的 Segment Anything Model（SAM）推理案例，完整展示了 SAM 在多种提示条件下的零样本图像分割能力。",
+    "technologies": ["CV"],
+    "href": "https://github.com/mindspore-lab/applications/blob/r2.7/cv/sam/inference_sam_segmentation.ipynb"
+  },
+  {
+    "type": "开发者案例",
+    "category": "社区实习",
+    "title": "BERT多选阅读理解",
+    "desc": "基于 MindSpore 框架和 MindSpore NLP 套件，使用 BERT 预训练模型在 SWAG 数据集上进行微调 (Fine-tune)，实现多项选择任务的自动推理。",
+    "technologies": ["LLM"],
+    "href": "https://github.com/mindspore-lab/applications/blob/r2.7/llm/bert/finetune_bert_multiple_choice.ipynb"
+  },
+  {
+    "type": "开发者案例",
+    "category": "社区实习",
+    "title": "ESMFold 蛋白质结构预测",
+    "desc": "基于MindSpore和MindSpore NLP 实现的 ESMFold 蛋白质结构预测应用案例，无需依赖外部数据库（如 MSA 检索），支持端到端的氨基酸序列到三维结构预测。",
+    "technologies": ["LLM"],
+    "href": "https://github.com/mindspore-lab/applications/blob/r2.7/llm/esmforproteinfolding/inference_esmforproteinfolding_prediction.ipynb"
+  },
+  {
+    "type": "开发者案例",
+    "category": "社区实习",
+    "title": "T5文本摘要",
+    "desc": "基于 MindSpore和MindSpore NLP 实现的 T5 文本摘要微调与推理应用案例。覆盖从环境配置、数据加载到微调训练、推理验证，以及最终模型与分词器的本地保存全流程。",
+    "technologies": ["LLM"],
+    "href": "https://github.com/mindspore-lab/applications/blob/r2.7/llm/t5/finetune_t5_daily_email_summarization.ipynb"
+  },
+  {
+    "type": "开发者案例",
+    "category": "创新训练营",
+    "title": "逻辑问答交互系统",
+    "desc": "昇思创新训练营（华中站）优秀作品，基于昇思MindSpore进行微调大模型，构建针对课堂问答逻辑关系的分析系统，旨在识别教师提问与学生回答之间的逻辑关联，进而评估课堂互动效果，为教学优化提供数据支持。",
+    "technologies": ["LLM"],
+    "href": "https://github.com/GuoDragon/MindTrio_CCNU/tree/main"
+  },
+  {
+    "type": "高校案例",
+    "category": "科学研究",
+    "title": "北京师范大学AI教学资源库",
+    "desc": "本仓库包括基于 昇思MindSpore 的多领域教学与实践案例，覆盖 NLP、CV、LLM等方向，面向课程教学、师资培训、工程实践等场景，提供可复现、可扩展的案例参考。",
+    "technologies": ["教学资源", "LLM", "OrangePi"],
+    "href": "https://gitee.com/bnu-sys/mindspore"
+  },
+  {
+    "type": "高校案例",
+    "category": "科学研究",
+    "title": "分子动力学模拟研究",
+    "desc": "分子动力学（Molecular Dynamics）模拟是一种计算机模拟方法，通过对分子、原子在一定时间内运动状态的模拟，考察系统发生的物理及化学变化过程，深圳湾实验室在研究过程中利用MindSpore的自动微分技术处理势能和力，自动并行技术实现分子动力学并行，使用深度分子模型替代传统分子力场模型，为模拟研究提供更快的计算速度，更高的计算精度，更简便的程序开发过程。",
+    "technologies": ["模拟", "研究"],
+    "href": ""
+  },
+  {
+    "type": "高校案例",
+    "category": "趣味应用",
+    "title": "手写汉字训练和识别系统",
+    "desc": "哈尔滨工业大学苏统华老师团队，基于MindSpore和昇腾910芯片提出大类别手写汉字识别模型的高效训练方案，使用8卡自动并行24分钟训练完毕，模型可迁移到昇腾310芯片上进行手写汉字识别。",
+    "technologies": ["手写汉字识别", "Ascend"],
+    "href": "https://www.mindspore.cn/news/detail?id=268"
+  },
+  {
+    "type": "高校案例",
+    "category": "科学研究",
+    "title": "深度概率编程",
+    "desc": "MindSpore概率编程库基于清华大学朱军老师团队开发的ZhuSuan框架，开发出概率学习模型和深度学习模型“无缝”融合的框架，旨在为用户提供完善的概率学习库，用于建立概率模型和应用贝叶斯推理。",
+    "technologies": ["深度学习", "贝叶斯理论"],
+    "href": "https://www.mindspore.cn/news/detail?id=257"
+  }
+]

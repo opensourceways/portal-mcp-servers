@@ -1,0 +1,26 @@
+{
+  "name": "mindspore-mcp",
+  "version": "0.0.1-rc.2",
+  "description": "MindSpore Portal MCP server - 提供MindSpore官网相关信息的查询功能",
+  "main": "src/index.js",
+  "type": "module",
+  "bin": {
+    "mindspore-mcp": "src/index.js"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "start:sse": "node src/index.js --sse",
+    "start:stdio": "node src/index.js"
+  },
+  "keywords": [
+    "mcp",
+    "mindspore",
+    "server"
+  ],
+  "author": "sig-OpenDesign",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.4",
+    "glob": "^11.0.0"
+  }
+}

@@ -1,0 +1,294 @@
+{
+  "lib": [
+    {
+      "date": "2023-09-25T08:00:00+08:00",
+      "description": "用于增强AI模型开发、部署，AI科研的开源项目库",
+      "html_url": "https://github.com/agi-brain/xuanpolicy",
+      "introduction": "XuanPolicy：全面统一的深度强化学习库。",
+      "lang": "zh",
+      "name": "MindSpore 生态",
+      "repo": "xuanpolicy",
+      "star": 1036,
+      "type": "Library"
+    },
+    {
+      "date": "2022-10-28T08:00:00+08:00",
+      "description": "用于增强AI模型开发、部署，AI科研的开源项目库",
+      "html_url": "https://github.com/tensorlayer/TensorLayerX",
+      "introduction": "TensorLayerX：统一的深度强化学习框架，适用于所有硬件、后端以及操作系统。",
+      "lang": "zh",
+      "name": "MindSpore 生态",
+      "repo": "TensorLayerX",
+      "star": 527,
+      "type": "Library"
+    },
+    {
+      "date": "2022-02-07T08:00:00+08:00",
+      "description": "用于增强AI模型开发、部署，AI科研的开源项目库",
+      "html_url": "https://github.com/BUPT-GAMMA/GammaGL",
+      "introduction": "多后端图学习框架。",
+      "lang": "zh",
+      "name": "MindSpore 生态",
+      "repo": "GammaGL",
+      "star": 244,
+      "type": "Library"
+    },
+    {
+      "date": "2022-02-07T08:00:00+08:00",
+      "description": "用于增强AI模型开发、部署，AI科研的开源项目库",
+      "html_url": "https://github.com/modelbox-ai/modelbox",
+      "introduction": "为AI应用的开发者提供一套统一的高性能、易用的编程框架，快速基于AI全栈服务、开发跨端边云的AI行业应用。",
+      "lang": "zh",
+      "name": "MindSpore 生态",
+      "repo": "modelbox",
+      "star": 160,
+      "type": "Library"
+    },
+    {
+      "date": "2022-10-28T08:00:00+08:00",
+      "description": "用于增强AI模型开发、部署，AI科研的开源项目库",
+      "html_url": "https://github.com/lvyufeng/Cybertron",
+      "introduction": "Cybertron：Transformer模型的MindSpore实现。",
+      "lang": "zh",
+      "name": "MindSpore 生态",
+      "repo": "Cybertron",
+      "star": 68,
+      "type": "Library"
+    },
+    {
+      "date": "2023-08-16T08:00:00+08:00",
+      "description": "用于增强AI模型开发、部署，AI科研的开源项目库",
+      "html_url": "https://github.com/shuoliu0-0/EDIS",
+      "introduction": "EDIS：药物-靶标相互作用预测的通用框架。",
+      "lang": "zh",
+      "name": "MindSpore 生态",
+      "repo": "EDIS",
+      "star": 4,
+      "type": "Library"
+    },
+    {
+      "date": "2024-08-16T08:00:00+08:00",
+      "description": "用于增强AI模型开发、部署，AI科研的开源项目库",
+      "html_url": "https://gitee.com/nudt-674/mind-radar",
+      "introduction": "信号处理套件",
+      "lang": "zh",
+      "name": "MindSpore 生态",
+      "repo": "MindRadar",
+      "star": 0,
+      "type": "Library"
+    },
+    {
+      "date": "2024-08-16T08:00:00+08:00",
+      "description": "用于增强AI模型开发、部署，AI科研的开源项目库",
+      "html_url": "https://gitee.com/nudt-674/mind-radar",
+      "introduction": "支持飞腾DSP的lite",
+      "lang": "zh",
+      "name": "MindSpore 生态",
+      "repo": "MindSpore Lite（DSP版）",
+      "star": 0,
+      "type": "Library"
+    },
+    {
+      "date": "2024-08-16T08:00:00+08:00",
+      "description": "用于增强AI模型开发、部署，AI科研的开源项目库",
+      "html_url": "https://openi.pcl.ac.cn/OpenI/MSAdapter",
+      "introduction": "兼容PyTorch语法的MindSpore高效开发框架，实现PyTorch生态算法向昇腾算力的零成本迁移与敏捷开发。",
+      "lang": "zh",
+      "name": "MindSpore 生态",
+      "repo": "MSAdapter",
+      "star": 0,
+      "type": "Library"
+    }
+  ],
+  "tutorial": [
+    {
+      "date": "2023-09-25T08:00:00+08:00",
+      "description": "AI子领域的入门教程开源仓",
+      "html_url": "https://github.com/mindspore-courses/step_into_chatgpt",
+      "introduction": "MindSpore在线技术公开课之大模型专题。",
+      "lang": "zh",
+      "name": "MindSpore 生态",
+      "repo": "step_into_chatgpt",
+      "star": 483,
+      "type": "Tutorial"
+    },
+    {
+      "date": "2022-10-28T08:00:00+08:00",
+      "description": "AI子领域的入门教程开源仓",
+      "html_url": "https://github.com/lvyufeng/mindspore-nlp-tutorial",
+      "introduction": "面向MindSpore用户的自然语言处理教程。",
+      "lang": "zh",
+      "name": "MindSpore 生态",
+      "repo": "mindspore-nlp-tutorial",
+      "star": 141,
+      "type": "Tutorial"
+    },
+    {
+      "date": "2022-10-28T08:00:00+08:00",
+      "description": "AI子领域的入门教程开源仓",
+      "html_url": "https://github.com/lvyufeng/d2l-mindspore",
+      "introduction": "《动手学深度学习》的MindSpore实现。",
+      "lang": "zh",
+      "name": "MindSpore 生态",
+      "repo": "d2l-mindspore",
+      "star": 125,
+      "type": "Tutorial"
+    },
+    {
+      "date": "2023-09-25T08:00:00+08:00",
+      "description": "AI子领域的入门教程开源仓",
+      "html_url": "https://github.com/mindspore-courses/DeepNLP-models-MindSpore",
+      "introduction": "cs-224n（斯坦福大学）中各种 Deep NLP 模型的MindSpore实现。",
+      "lang": "zh",
+      "name": "MindSpore 生态",
+      "repo": "DeepNLP-models-MindSpore",
+      "star": 24,
+      "type": "Tutorial"
+    },
+    {
+      "date": "2023-09-25T08:00:00+08:00",
+      "description": "AI子领域的入门教程开源仓",
+      "html_url": "https://github.com/mindspore-courses/Deep-Reinforcement-Learning-Algorithms-with-MindSpore",
+      "introduction": "MindSpore深度强化学习算法和环境实现。",
+      "lang": "zh",
+      "name": "MindSpore 生态",
+      "repo": "Deep-Reinforcement-Learning-Algorithms-with-MindSpore",
+      "star": 16,
+      "type": "Tutorial"
+    },
+    {
+      "date": "2023-09-25T08:00:00+08:00",
+      "description": "AI子领域的入门教程开源仓",
+      "html_url": "https://github.com/mindspore-courses/heads-on-mindspore",
+      "introduction": "MindSpore教程，包括对话、风格迁移、诗歌写作、动画生成等趣味项目。",
+      "lang": "zh",
+      "name": "MindSpore 生态",
+      "repo": "heads-on-mindspore",
+      "star": 6,
+      "type": "Tutorial"
+    },
+    {
+      "date": "2023-09-25T08:00:00+08:00",
+      "description": "AI子领域的入门教程开源仓",
+      "html_url": "https://github.com/mindspore-courses/Rainbow-MindSpore",
+      "introduction": "从 DQN 到 Rainbow 的分步教程。",
+      "lang": "zh",
+      "name": "MindSpore 生态",
+      "repo": "Rainbow-MindSpore",
+      "star": 6,
+      "type": "Tutorial"
+    },
+    {
+      "date": "2023-09-25T08:00:00+08:00",
+      "description": "AI子领域的入门教程开源仓",
+      "html_url": "https://github.com/mindspore-courses/mindspore-classification",
+      "introduction": "使用MindSpore实现的图像分类模型。",
+      "lang": "zh",
+      "name": "MindSpore 生态",
+      "repo": "mindspore-classification",
+      "star": 2,
+      "type": "Tutorial"
+    },
+    {
+      "date": "2023-09-25T08:00:00+08:00",
+      "description": "AI子领域的入门教程开源仓",
+      "html_url": "https://github.com/mindspore-courses/MindSpore-GAN",
+      "introduction": "生成对抗网络（GAN）及其变体的MindSpore实现合集。",
+      "lang": "zh",
+      "name": "MindSpore 生态",
+      "repo": "MindSpore-GAN",
+      "star": 0,
+      "type": "Tutorial"
+    },
+    {
+      "date": "2023-09-25T08:00:00+08:00",
+      "description": "AI子领域的入门教程开源仓",
+      "html_url": "https://github.com/mindspore-courses/ABSA-MindSpore",
+      "introduction": "基于方面的情感分析，使用MindSpore实现。",
+      "lang": "zh",
+      "name": "MindSpore 生态",
+      "repo": "ABSA-MindSpore",
+      "star": 0,
+      "type": "Tutorial"
+    }
+  ],
+  "model": [
+    {
+      "date": "2022-10-28T08:00:00+08:00",
+      "description": "面向特定任务的SOTA模型及其衍生工具",
+      "html_url": "https://github.com/pprp/GoodsRecognition.MindSpore",
+      "introduction": "基于MindSpore AI框架实现零售商品识别 top1方案。",
+      "lang": "zh",
+      "name": "MindSpore 生态",
+      "repo": "GoodsRecognition",
+      "star": 49,
+      "type": "Model"
+    },
+    {
+      "date": "2023-02-07T08:00:00+08:00",
+      "description": "面向特定任务的SOTA模型及其衍生工具",
+      "html_url": "https://github.com/lvyufeng/denoising-diffusion-mindspore",
+      "introduction": "Denoising Diffusion Probabilistic Model(NeurIPS 2020)的MindSpore实现。",
+      "lang": "zh",
+      "name": "MindSpore 生态",
+      "repo": "Denoising Diffusion Probabilistic Model",
+      "star": 46,
+      "type": "Model"
+    },
+    {
+      "date": "2022-10-28T08:00:00+08:00",
+      "description": "面向特定任务的SOTA模型及其衍生工具",
+      "html_url": "https://github.com/grispeut/TSD_mindspore",
+      "introduction": "第三届华为云无人车挑战杯复赛Top1方案。",
+      "lang": "zh",
+      "name": "MindSpore 生态",
+      "repo": "TSD",
+      "star": 14,
+      "type": "Model"
+    },
+    {
+      "date": "2023-11-09T08:00:00+08:00",
+      "description": "面向特定任务的SOTA模型及其衍生工具",
+      "html_url": "https://openi.pcl.ac.cn/OpenDIC",
+      "introduction": "【北京大学高伟老师团队】基于深度学习的图像压缩模型库",
+      "lang": "zh",
+      "name": "MindSpore 生态",
+      "repo": "OpenDIC",
+      "star": 0,
+      "type": "Model"
+    },
+    {
+      "date": "2023-11-09T08:00:00+08:00",
+      "description": "面向特定任务的SOTA模型及其衍生工具",
+      "html_url": "https://openi.pcl.ac.cn/OpenDMC",
+      "introduction": "【北京大学高伟老师团队】基于深度学习的视频压缩模型库",
+      "lang": "zh",
+      "name": "MindSpore 生态",
+      "repo": "OpenDMC",
+      "star": 0,
+      "type": "Model"
+    },
+    {
+      "date": "2023-11-09T08:00:00+08:00",
+      "description": "面向特定任务的SOTA模型及其衍生工具",
+      "html_url": "https://openi.pcl.ac.cn/OpenPCQA",
+      "introduction": "【北京大学高伟老师团队】基于深度学习的三维点云质量评价模型库",
+      "lang": "zh",
+      "name": "MindSpore 生态",
+      "repo": "OpenPCQA",
+      "star": 0,
+      "type": "Model"
+    },
+    {
+      "date": "2024-06-20T08:00:00+08:00",
+      "description": "面向特定任务的SOTA模型及其衍生工具",
+      "html_url": "https://github.com/Daniel00008/Visual_Scene_Adaptive_Framework",
+      "introduction": "【天津大学韩亚洪老师团队】大模型引导的泛视觉场景自适应学习框架的MindSpore解决方案",
+      "lang": "zh",
+      "name": "MindSpore 生态",
+      "repo": "Visual Scene Adaptive Framework",
+      "star": 0,
+      "type": "Model"
+    }
+  ]
+}
