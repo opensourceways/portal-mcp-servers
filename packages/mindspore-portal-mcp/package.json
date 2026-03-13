@@ -1,6 +1,6 @@
 {
   "name": "mindspore-mcp",
-  "version": "0.0.1-rc.2",
+  "version": "0.0.1-rc.1",
   "description": "MindSpore Portal MCP server - 提供MindSpore官网相关信息的查询功能",
   "main": "src/index.js",
   "type": "module",
