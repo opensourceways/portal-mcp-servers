@@ -1,7 +1,6 @@
 # openEuler Portal MCP Server
 
 [![npm version](https://img.shields.io/npm/v/openeuler-portal-mcp.svg)](https://www.npmjs.com/package/openeuler-portal-mcp)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 openEuler Model Context Protocol (MCP) Server，为 Claude 等 AI 工具提供 openEuler 官网相关信息的查询能力。
 

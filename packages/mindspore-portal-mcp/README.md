@@ -1,7 +1,6 @@
 # MindSpore Portal MCP Server
 
 [![npm version](https://img.shields.io/npm/v/mindspore-portal-mcp.svg)](https://www.npmjs.com/package/mindspore-portal-mcp)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 MindSpore Model Context Protocol (MCP) Server，为 Claude 等 AI 工具提供 MindSpore 官网相关信息的查询能力。
 

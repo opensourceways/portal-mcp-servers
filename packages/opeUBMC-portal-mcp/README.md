@@ -1,6 +1,6 @@
 # openUBMC Portal MCP Server
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![npm version](https://img.shields.io/npm/v/openubmc-portal-mcp.svg)](https://www.npmjs.com/package/openubmc-portal-mcp)
 
 openUBMC Model Context Protocol (MCP) Server，为 Claude 等 AI 工具提供 openUBMC 社区相关信息的查询能力。
 
