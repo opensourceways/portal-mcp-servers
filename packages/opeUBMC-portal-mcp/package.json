@@ -1,0 +1,25 @@
+{
+  "name": "openubmc-portal-mcp",
+  "version": "0.3.2",
+  "description": "openUBMC Portal MCP server - 提供openUBMC社区相关信息的查询功能",
+  "main": "src/index.js",
+  "type": "module",
+  "bin": {
+    "openubmc-portal-mcp": "src/index.js"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "start:sse": "node src/index.js --sse",
+    "start:stdio": "node src/index.js"
+  },
+  "keywords": [
+    "mcp",
+    "openUBMC",
+    "server"
+  ],
+  "author": "sig-OpenDesign",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.26.0"
+  }
+}
