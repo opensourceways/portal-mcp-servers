@@ -1,0 +1,1475 @@
+{
+  "zh": {
+    "memberList": [
+      {
+        "title": "openEuler 委员会顾问专家委员会",
+        "list": [
+          {
+            "name": "陆首群",
+            "position": [
+              "中国开源软件联盟名誉主席",
+              "原国务院信息办常务副主任"
+            ]
+          },
+          {
+            "name": "倪光南",
+            "position": [
+              "中国工程院院士"
+            ]
+          },
+          {
+            "name": "廖湘科",
+            "position": [
+              "中国工程院院士"
+            ]
+          },
+          {
+            "name": "王怀民",
+            "position": [
+              "中国科学院院士"
+            ]
+          },
+          {
+            "name": "邬贺铨",
+            "position": [
+              "中国工程院院士"
+            ]
+          },
+          {
+            "name": "周明辉",
+            "position": [
+              "北京大学计算机系教授",
+              "北大博雅特聘教授"
+            ]
+          },
+          {
+            "name": "霍太稳",
+            "position": [
+              "极客邦科技创始人兼CEO"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "openEuler 委员会",
+        "list": [
+          {
+            "title": "主席",
+            "personalList": [
+              {
+                "name": "熊伟",
+                "position": [
+                  "华为技术有限公司"
+                ]
+              }
+            ]
+          },
+          {
+            "title": "常务委员会委员",
+            "personalList": [
+              {
+                "name": "韩乃平",
+                "position": [
+                  "麒麟软件有限公司"
+                ]
+              },
+              {
+                "name": "刘文清",
+                "position": [
+                  "湖南麒麟信安科技股份有限公司"
+                ]
+              },
+              {
+                "name": "屈晟",
+                "position": [
+                  "中国科学院软件研究所"
+                ]
+              },
+              {
+                "name": "张磊",
+                "position": [
+                  "统信软件技术有限公司"
+                ]
+              }
+            ]
+          },
+          {
+            "title": "委员",
+            "personalList": [
+              {
+                "name": "高培",
+                "position": [
+                  "软通动力信息技术（集团）股份有限公司"
+                ]
+              },
+              {
+                "name": "李培源",
+                "position": [
+                  "天翼云科技有限公司"
+                ]
+              },
+              {
+                "name": "田俊",
+                "position": [
+                  "英特尔（中国）有限公司"
+                ]
+              },
+              {
+                "name": "王皓",
+                "position": [
+                  "超聚变数字技术有限公司"
+                ]
+              },
+              {
+                "name": "于力",
+                "position": [
+                  "南方电网数字电网科技有限（广东）公司"
+                ]
+              },
+              {
+                "name": "于萍",
+                "position": [
+                  "江苏润和软件股份有限公司"
+                ]
+              },
+              {
+                "name": "张胜举",
+                "position": [
+                  "中国移动云能力中心"
+                ]
+              },
+              {
+                "name": "钟忻",
+                "position": [
+                  "联通数字科技有限公司"
+                ]
+              }
+            ]
+          },
+          {
+            "title": "执行总监",
+            "personalList": [
+              {
+                "name": "胡正策",
+                "position": [
+                  "华为技术有限公司"
+                ]
+              }
+            ]
+          },
+          {
+            "title": "执行秘书",
+            "personalList": [
+              {
+                "name": "刘彦飞",
+                "position": [
+                  "开放原子开源基金会"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "openEuler 技术委员会",
+        "list": [
+          {
+            "name": "胡欣蔚",
+            "post": "主席",
+            "email": "shinwell_hu@openeuler.sh",
+            "gitee": "shinwell_hu"
+          },
+          {
+            "name": "曹志",
+            "post": "委员",
+            "email": "george.cao@huawei.com",
+            "gitee": "georgecao"
+          },
+          {
+            "name": "陈茂冬",
+            "post": "委员",
+            "email": "chenmaodong@xfusion.com",
+            "gitee": "chenmaodong"
+          },
+          {
+            "name": "陈棋德",
+            "post": "委员",
+            "email": "dillon.chen@gmail.com",
+            "gitee": "dillon_chen"
+          },
+          {
+            "name": "陈亚强",
+            "post": "委员",
+            "email": "chen_yaqiang@foxmail.com",
+            "gitee": "yaqiangchen"
+          },
+          {
+            "name": "杜开田",
+            "post": "委员",
+            "email": "dukaitian@huawei.com",
+            "gitee": "jimmy_hero"
+          },
+          {
+            "name": "高贵锦",
+            "post": "委员",
+            "email": "gaoguijin@huawei.com",
+            "gitee": "blue0613"
+          },
+          {
+            "name": "侯健",
+            "post": "委员",
+            "email": "houjian@kylinos.cn",
+            "gitee": "hjimmy"
+          },
+          {
+            "name": "胡峰",
+            "post": "委员",
+            "email": "solar.hu@huawei.com",
+            "gitee": "solarhu"
+          },
+          {
+            "name": "李永强",
+            "post": "委员",
+            "email": "liyongqiang@xfusion.com",
+            "gitee": "charlie_li"
+          },
+          {
+            "name": "刘恺",
+            "post": "委员",
+            "email": "kraml.liu@gmail.com",
+            "gitee": "kailiu42"
+          },
+          {
+            "name": "吕从庆",
+            "post": "委员",
+            "email": "lvcongqing@uniontech.com",
+            "gitee": "HelloWorld_lvcongqing"
+          },
+          {
+            "name": "马全一",
+            "post": "委员",
+            "email": "eli@patch.sh",
+            "gitee": "genedna"
+          },
+          {
+            "name": "任慰",
+            "post": "委员",
+            "email": "renwei41@huawei.com",
+            "gitee": "vonhust"
+          },
+          {
+            "name": "石勇",
+            "post": "委员",
+            "email": "shiyong@kylinsec.com.cn",
+            "gitee": "stonefly128"
+          },
+          {
+            "name": "唐葛亮",
+            "post": "委员",
+            "email": "geliang@kernel.org",
+            "gitee": "geliangtang"
+          },
+          {
+            "name": "田俊",
+            "post": "委员",
+            "email": "jun.j.tian@intel.com",
+            "gitee": "juntianlinux"
+          },
+          {
+            "name": "王建民",
+            "post": "委员",
+            "email": "jianmin@iscas.ac.cn",
+            "gitee": "cellfaint"
+          },
+          {
+            "name": "王经纬",
+            "post": "委员",
+            "email": "wangjingwei@iscas.ac.cn",
+            "gitee": "Jingwiw"
+          },
+          {
+            "name": "王志钢",
+            "post": "委员",
+            "email": "wangzhigang17@huawei.com",
+            "gitee": "jianminw"
+          },
+          {
+            "name": "魏建刚",
+            "post": "委员",
+            "email": "wei_jiangang@hoperun.com",
+            "gitee": "bugflyfly"
+          },
+          {
+            "name": "吴峰光",
+            "post": "委员",
+            "email": "wfg@mail.ustc.edu.cn",
+            "gitee": "wu_fengguang"
+          },
+          {
+            "name": "谢秀奇",
+            "post": "委员",
+            "email": "xiexiuqi@huawei.com",
+            "gitee": "xiexiuqi"
+          },
+          {
+            "name": "叶青龙",
+            "post": "委员",
+            "email": "yeqinglong@kylinsec.com.cn",
+            "gitee": "yeqinglong01"
+          },
+          {
+            "name": "岳龙广",
+            "post": "委员",
+            "email": "yuelg@chinaunicom.cn",
+            "gitee": "bigclouds99"
+          },
+          {
+            "name": "赵川峰",
+            "post": "委员",
+            "email": "zhaochuanfeng@huawei.com",
+            "gitee": "cf-zhao"
+          },
+          {
+            "name": "朱健伟",
+            "post": "委员",
+            "email": "zhujianwei7@huawei.com",
+            "gitee": "zhujianwei001"
+          }
+        ]
+      },
+      {
+        "title": "openEuler 品牌委员会",
+        "list": [
+          {
+            "name": "梁冰",
+            "position": [
+              "主席"
+            ],
+            "email": "liangbing11@huawei.com"
+          },
+          {
+            "name": "黄兆伟",
+            "position": [
+              "委员"
+            ],
+            "email": "huangzhaowei@xfusion.com"
+          },
+          {
+            "name": "胡明月",
+            "position": [
+              "委员"
+            ],
+            "email": "Ming.yue.hu@intel.com"
+          },
+          {
+            "name": "李震宁",
+            "position": [
+              "委员"
+            ],
+            "email": "lizhenning@kylinos.cn"
+          },
+          {
+            "name": "彭雅莹",
+            "position": [
+              "委员"
+            ],
+            "email": "260060281@qq.com"
+          },
+          {
+            "name": "文丹",
+            "position": [
+              "委员"
+            ],
+            "email": "wendan@kylinsec.com.cn"
+          },
+          {
+            "name": "徐露",
+            "position": [
+              "委员"
+            ],
+            "email": "xu_lu2@hoperun.com"
+          },
+          {
+            "name": "郑传荣",
+            "position": [
+              "委员"
+            ],
+            "email": "zhengchuanrong@uniontech.com"
+          },
+          {
+            "name": "郑莉",
+            "position": [
+              "委员"
+            ],
+            "email": "lizhengq@isoftstone.com"
+          }
+        ]
+      },
+      {
+        "title": "openEuler 用户委员会",
+        "list": [
+          {
+            "name": "王军",
+            "position": [
+              "主席"
+            ],
+            "email": "junwangs@isoftstone.com"
+          },
+          {
+            "name": "陈静",
+            "position": [
+              "委员"
+            ],
+            "email": "chenjingc@uniontech.com"
+          },
+          {
+            "name": "崔骥",
+            "position": [
+              "委员"
+            ],
+            "email": "cuiji@beyondcent.com"
+          },
+          {
+            "name": "杜韶辉",
+            "position": [
+              "委员"
+            ],
+            "email": "dush1@csg.cn"
+          },
+          {
+            "name": "龚鹏程",
+            "position": [
+              "委员"
+            ],
+            "email": "4705317@QQ.com"
+          },
+          {
+            "name": "高洪鹤",
+            "position": [
+              "委员"
+            ],
+            "email": "gaohonghe@kylinsec.com.cn"
+          },
+          {
+            "name": "胡勇",
+            "position": [
+              "委员"
+            ],
+            "email": "yong.hu@intel.com"
+          },
+          {
+            "name": "李晨斌",
+            "position": [
+              "委员"
+            ],
+            "email": "cbli@linx-info.com"
+          },
+          {
+            "name": "李荣青",
+            "position": [
+              "委员"
+            ],
+            "email": "lirongqing@baidu.com"
+          },
+          {
+            "name": "荣涛",
+            "position": [
+              "委员"
+            ],
+            "email": "rongtao@cestc.cn"
+          },
+          {
+            "name": "石光银",
+            "position": [
+              "委员"
+            ],
+            "email": "shiguangyin@inspur.com"
+          },
+          {
+            "name": "徐磊",
+            "position": [
+              "委员"
+            ],
+            "email": "stone.xulei@xfusion.com"
+          },
+          {
+            "name": "徐田原",
+            "position": [
+              "委员"
+            ],
+            "email": "xu.tianyuan@h3c.com"
+          },
+          {
+            "name": "张剑",
+            "position": [
+              "委员"
+            ],
+            "email": "zhang_jian7@hoperun.com"
+          },
+          {
+            "name": "张庆南",
+            "position": [
+              "委员"
+            ],
+            "email": "zhangqingnan001@chinasofti.com"
+          },
+          {
+            "name": "郑振宇",
+            "position": [
+              "委员"
+            ],
+            "email": "zhengzhenyu@openeuler.sh"
+          },
+          {
+            "name": "朱晨",
+            "position": [
+              "委员"
+            ],
+            "email": "zhuchen@kylinos.cn"
+          }
+        ]
+      },
+      {
+        "title": "openEuler 业务发展工作组",
+        "list": [
+          {
+            "name": "李扬",
+            "position": [
+              "组长"
+            ]
+          },
+          {
+            "name": "黄伟旭",
+            "position": [
+              "副组长"
+            ]
+          },
+          {
+            "name": "张木梁",
+            "position": [
+              "副组长"
+            ]
+          },
+          {
+            "name": "李成鹏",
+            "position": [
+              "组员"
+            ]
+          },
+          {
+            "name": "刘华杰",
+            "position": [
+              "组员"
+            ]
+          },
+          {
+            "name": "刘明杰",
+            "position": [
+              "组员"
+            ]
+          },
+          {
+            "name": "刘胜航",
+            "position": [
+              "组员"
+            ]
+          },
+          {
+            "name": "张剑",
+            "position": [
+              "组员"
+            ]
+          },
+          {
+            "name": "朱文玉",
+            "position": [
+              "组员"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "openEuler 社区运营工作组",
+        "list": [
+          {
+            "name": "郑振宇",
+            "position": [
+              "组长"
+            ]
+          },
+          {
+            "name": "胡骁杰",
+            "position": [
+              "副组长"
+            ]
+          },
+          {
+            "name": "陈静",
+            "position": [
+              "组员"
+            ]
+          },
+          {
+            "name": "刘华杰",
+            "position": [
+              "组员"
+            ]
+          },
+          {
+            "name": "刘敏",
+            "position": [
+              "组员"
+            ]
+          },
+          {
+            "name": "刘明杰",
+            "position": [
+              "组员"
+            ]
+          },
+          {
+            "name": "任涛",
+            "position": [
+              "组员"
+            ]
+          },
+          {
+            "name": "田可辉",
+            "position": [
+              "组员"
+            ]
+          },
+          {
+            "name": "徐露",
+            "position": [
+              "组员"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "openEuler 教育工作组",
+        "list": [
+          {
+            "name": "赵立超",
+            "position": [
+              "组长"
+            ]
+          },
+          {
+            "name": "杨东杰",
+            "position": [
+              "副组长"
+            ]
+          },
+          {
+            "name": "方丽丽",
+            "position": [
+              "组员"
+            ]
+          },
+          {
+            "name": "冯潇靓",
+            "position": [
+              "组员"
+            ]
+          },
+          {
+            "name": "高立群",
+            "position": [
+              "组员"
+            ]
+          },
+          {
+            "name": "郭全友",
+            "position": [
+              "组员"
+            ]
+          },
+          {
+            "name": "林振行",
+            "position": [
+              "组员"
+            ]
+          },
+          {
+            "name": "门小康",
+            "position": [
+              "组员"
+            ]
+          },
+          {
+            "name": "秦学峰",
+            "position": [
+              "组员"
+            ]
+          },
+          {
+            "name": "谢宇",
+            "position": [
+              "组员"
+            ]
+          },
+          {
+            "name": "杨和悦",
+            "position": [
+              "组员"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "openEuler 法务工作组",
+        "list": [
+          {
+            "name": "张伟",
+            "position": [
+              "组长"
+            ]
+          },
+          {
+            "name": "刘伟",
+            "position": [
+              "副组长"
+            ]
+          },
+          {
+            "name": "李博",
+            "position": [
+              "组员"
+            ]
+          },
+          {
+            "name": "宋李萍",
+            "position": [
+              "组员"
+            ]
+          },
+          {
+            "name": "王思扬",
+            "position": [
+              "组员"
+            ]
+          },
+          {
+            "name": "邢鹏",
+            "position": [
+              "组员"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "openEuler AI联合工作组",
+        "list": [
+          {
+            "name": "胡欣蔚",
+            "position": [
+              "组长"
+            ]
+          },
+          {
+            "name": "陈榕",
+            "position": [
+              "组员"
+            ]
+          },
+          {
+            "name": "陈亚强",
+            "position": [
+              "组员"
+            ]
+          },
+          {
+            "name": "邓益平",
+            "position": [
+              "组员"
+            ]
+          },
+          {
+            "name": "丁为杰",
+            "position": [
+              "组员"
+            ]
+          },
+          {
+            "name": "高伟",
+            "position": [
+              "组员"
+            ]
+          },
+          {
+            "name": "郭祎斌",
+            "position": [
+              "组员"
+            ]
+          },
+          {
+            "name": "何守成",
+            "position": [
+              "组员"
+            ]
+          },
+          {
+            "name": "侯健",
+            "position": [
+              "组员"
+            ]
+          },
+          {
+            "name": "Fred Huang",
+            "position": [
+              "组员"
+            ]
+          },
+          {
+            "name": "黄俊",
+            "position": [
+              "组员"
+            ]
+          },
+          {
+            "name": "江毅文",
+            "position": [
+              "组员"
+            ]
+          },
+          {
+            "name": "蒋雨薇",
+            "position": [
+              "组员"
+            ]
+          },
+          {
+            "name": "江政雄",
+            "position": [
+              "组员"
+            ]
+          },
+          {
+            "name": "金龙",
+            "position": [
+              "组员"
+            ]
+          },
+          {
+            "name": "秦彬娟",
+            "position": [
+              "组员"
+            ]
+          },
+          {
+            "name": "阙鸣健",
+            "position": [
+              "组员"
+            ]
+          },
+          {
+            "name": "沈国良",
+            "position": [
+              "组员"
+            ]
+          },
+          {
+            "name": "孙政华",
+            "position": [
+              "组员"
+            ]
+          },
+          {
+            "name": "田可辉",
+            "position": [
+              "组员"
+            ]
+          },
+          {
+            "name": "王清珺",
+            "position": [
+              "组员"
+            ]
+          },
+          {
+            "name": "沃天宇",
+            "position": [
+              "组员"
+            ]
+          },
+          {
+            "name": "吴斌",
+            "position": [
+              "组员"
+            ]
+          },
+          {
+            "name": "夏知渊",
+            "position": [
+              "组员"
+            ]
+          },
+          {
+            "name": "相元红",
+            "position": [
+              "组员"
+            ]
+          },
+          {
+            "name": "徐洋",
+            "position": [
+              "组员"
+            ]
+          },
+          {
+            "name": "严海双",
+            "position": [
+              "组员"
+            ]
+          },
+          {
+            "name": "杨西利",
+            "position": [
+              "组员"
+            ]
+          },
+          {
+            "name": "詹年科",
+            "position": [
+              "组员"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "en": {
+    "memberList": [
+      {
+        "title": "Advisory Committee of the openEuler Committee",
+        "list": [
+          {
+            "name": "Lu Shouqun",
+            "position": [
+              "Honorary Chairman of China OSS Promotion Union",
+              "Former Executive Deputy Director of the Informatization Office of the State Council"
+            ]
+          },
+          {
+            "name": "Ni Guangnan",
+            "position": [
+              "Academician of Chinese Academy of Engineering"
+            ]
+          },
+          {
+            "name": "Liao Xiangke",
+            "position": [
+              "Academicians of Chinese Academy of Engineering"
+            ]
+          },
+          {
+            "name": "Wang Huaimin",
+            "position": [
+              "Academician of Chinese Academy of Sciences"
+            ]
+          },
+          {
+            "name": "Wu Hequan",
+            "position": [
+              "Academicians of Chinese Academy of Engineering"
+            ]
+          },
+          {
+            "name": "Zhou Minghui",
+            "position": [
+              "Professor of School of Computer Science, Peking University",
+              "Peking University Boya Chair Professor"
+            ]
+          },
+          {
+            "name": "Huo Taiwen",
+            "position": [
+              "Founder and CEO of Geekbang Technology"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "openEuler Committee",
+        "list": [
+          {
+            "title": "Chairperson",
+            "personalList": [
+              {
+                "name": "Xiong Wei",
+                "position": [
+                  "Huawei Technologies Co., Ltd."
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Standing Committee Members",
+            "personalList": [
+              {
+                "name": "Han Naiping",
+                "position": [
+                  "Kylinsoft Co., Ltd."
+                ]
+              },
+              {
+                "name": "Liu Wenqing",
+                "position": [
+                  "Hunan Kylinsec Technology Co., Ltd."
+                ]
+              },
+              {
+                "name": "Qu Sheng",
+                "position": [
+                  "Institute of Software, Chinese Academy of Sciences"
+                ]
+              },
+              {
+                "name": "Zhang Lei",
+                "position": [
+                  "UnionTech Software Technology Co., Ltd."
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Committee Members",
+            "personalList": [
+              {
+                "name": "Gao Pei",
+                "position": [
+                  "iSoftStone Information Technology (Group) Co., Ltd."
+                ]
+              },
+              {
+                "name": "Li Peiyuan",
+                "position": [
+                  "China Telecom e-Cloud Technology Co., Ltd."
+                ]
+              },
+              {
+                "name": "Tian Jun",
+                "position": [
+                  "Intel China Ltd."
+                ]
+              },
+              {
+                "name": "Wang Hao",
+                "position": [
+                  "xFusion Digital Technologies Co., Ltd."
+                ]
+              },
+              {
+                "name": "Yu Li",
+                "position": [
+                  "China Southern Power Grid"
+                ]
+              },
+              {
+                "name": "Yu Ping",
+                "position": [
+                  "Jiangsu HopeRun Software Co., Ltd."
+                ]
+              },
+              {
+                "name": "Zhang Shengju",
+                "position": [
+                  "China Mobile (Suzhou) Software Technology Co., Ltd."
+                ]
+              },
+              {
+                "name": "Zhong Xin",
+                "position": [
+                  "China Unicom Digital Technology Co., Ltd."
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Executive Director",
+            "personalList": [
+              {
+                "name": "Hu Zhengce",
+                "position": [
+                  "Huawei Technologies Co., Ltd."
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Executive Secretary",
+            "personalList": [
+              {
+                "name": "Liu Yanfei",
+                "position": [
+                  "OpenAtom Foundation"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "openEuler Technical Committee",
+        "list": [
+          {
+            "name": "Hu Xinwei",
+            "post": "Chairperson",
+            "email": "shinwell_hu@openeuler.sh",
+            "gitee": "shinwell_hu"
+          },
+          {
+            "name": "Cao Zhi",
+            "post": "Committee member",
+            "email": "george.cao@huawei.com",
+            "gitee": "georgecao"
+          },
+          {
+            "name": "Chen Maodong",
+            "post": "Committee member",
+            "email": "chenmaodong@xfusion.com",
+            "gitee": "chenmaodong"
+          },
+          {
+            "name": "Chen Qide",
+            "post": "Committee member",
+            "email": "dillon.chen@gmail.com",
+            "gitee": "dillon_chen"
+          },
+          {
+            "name": "Chenn Yaqiang",
+            "post": "Committee member",
+            "email": "chen_yaqiang@foxmail.com",
+            "gitee": "yaqiangchen"
+          },
+          {
+            "name": "Du Kaitian",
+            "post": "Committee member",
+            "email": "dukaitian@huawei.com",
+            "gitee": "jimmy_hero"
+          },
+          {
+            "name": "Gao Guijin",
+            "post": "Committee member",
+            "email": "gaoguijin@huawei.com",
+            "gitee": "blue0613"
+          },
+          {
+            "name": "Hou Jian",
+            "post": "Committee member",
+            "email": "houjian@kylinos.cn",
+            "gitee": "hjimmy"
+          },
+          {
+            "name": "Hu Feng",
+            "post": "Committee member",
+            "email": "solar.hu@huawei.com",
+            "gitee": "solarhu"
+          },
+          {
+            "name": "Li Yongqiang",
+            "post": "Committee member",
+            "email": "liyongqiang@xfusion.com",
+            "gitee": "charlie_li"
+          },
+          {
+            "name": "Liu Kai",
+            "post": "Committee member",
+            "email": "kraml.liu@gmail.com",
+            "gitee": "kailiu42"
+          },
+          {
+            "name": "Lv Congqing",
+            "post": "Committee member",
+            "email": "lvcongqing@uniontech.com",
+            "gitee": "HelloWorld_lvcongqing"
+          },
+          {
+            "name": "Ma Quanyi",
+            "post": "Committee member",
+            "email": "eli@patch.sh",
+            "gitee": "genedna"
+          },
+          {
+            "name": "Ren Wei",
+            "post": "Committee member",
+            "email": "renwei41@huawei.com",
+            "gitee": "vonhust"
+          },
+          {
+            "name": "Shi Yong",
+            "post": "Committee member",
+            "email": "shiyong@kylinsec.com.cn",
+            "gitee": "stonefly128"
+          },
+          {
+            "name": "Tang Geliang",
+            "post": "Committee member",
+            "email": "geliang@kernel.org",
+            "gitee": "geliangtang"
+          },
+          {
+            "name": "Tian Jun",
+            "post": "Committee member",
+            "email": "jun.j.tian@intel.com",
+            "gitee": "juntianlinux"
+          },
+          {
+            "name": "Wang Jianmin",
+            "post": "Committee member",
+            "email": "jianmin@iscas.ac.cn",
+            "gitee": "cellfaint"
+          },
+          {
+            "name": "Wang Jingwei",
+            "post": "Committee member",
+            "email": "wangjingwei@iscas.ac.cn",
+            "gitee": "Jingwiw"
+          },
+          {
+            "name": "Wang Zhigang",
+            "post": "Committee member",
+            "email": "wangzhigang17@huawei.com",
+            "gitee": "jianminw"
+          },
+          {
+            "name": "Wei Jiangang",
+            "post": "Committee member",
+            "email": "wei_jiangang@hoperun.com",
+            "gitee": "bugflyfly"
+          },
+          {
+            "name": "Wu Fengguang",
+            "post": "Committee member",
+            "email": "wfg@mail.ustc.edu.cn",
+            "gitee": "wu_fengguang"
+          },
+          {
+            "name": "Xie Xiuqi",
+            "post": "Committee member",
+            "email": "xiexiuqi@huawei.com",
+            "gitee": "xiexiuqi"
+          },
+          {
+            "name": "Ye Qinglong",
+            "post": "Committee member",
+            "email": "yeqinglong@kylinsec.com.cn",
+            "gitee": "yeqinglong01"
+          },
+          {
+            "name": "Yue Longguang",
+            "post": "Committee member",
+            "email": "yuelg@chinaunicom.cn",
+            "gitee": "bigclouds99"
+          },
+          {
+            "name": "Zhao Chuanfeng",
+            "post": "Committee member",
+            "email": "zhaochuanfeng@huawei.com",
+            "gitee": "cf-zhao"
+          },
+          {
+            "name": "Zhu Jianwei",
+            "post": "Committee member",
+            "email": "zhujianwei7@huawei.com",
+            "gitee": "zhujianwei001"
+          }
+        ]
+      },
+      {
+        "title": "openEuler Marketing Committee",
+        "list": [
+          {
+            "name": "Liang Bing",
+            "position": [
+              "Chairperson"
+            ],
+            "email": "liangbing11@huawei.com"
+          },
+          {
+            "name": "Huang Zhaowei",
+            "position": [
+              "Committee member"
+            ],
+            "email": "huangzhaowei@xfusion.com"
+          },
+          {
+            "name": "Hu Mingyue",
+            "position": [
+              "Committee member"
+            ],
+            "email": "Ming.yue.hu@intel.com"
+          },
+          {
+            "name": "Li Zhenning",
+            "position": [
+              "Committee member"
+            ],
+            "email": "lizhenning@kylinos.cn"
+          },
+          {
+            "name": "Peng Yaying",
+            "position": [
+              "Committee member"
+            ],
+            "email": "260060281@qq.com"
+          },
+          {
+            "name": "Wen Dan",
+            "position": [
+              "Committee member"
+            ],
+            "email": "wendan@kylinsec.com.cn"
+          },
+          {
+            "name": "Xu Lu",
+            "position": [
+              "Committee member"
+            ],
+            "email": "xu_lu2@hoperun.com"
+          },
+          {
+            "name": "Zheng Chuanrong",
+            "position": [
+              "Committee member"
+            ],
+            "email": "zhengchuanrong@uniontech.com"
+          },
+          {
+            "name": "Zheng Li",
+            "position": [
+              "Committee member"
+            ],
+            "email": "lizhengq@isoftstone.com"
+          }
+        ]
+      },
+      {
+        "title": "openEuler User Committee",
+        "list": [
+          {
+            "name": "Wang Jun",
+            "position": [
+              "Chairperson"
+            ],
+            "email": "junwangs@isoftstone.com"
+          },
+          {
+            "name": "Chen Jing",
+            "position": [
+              "Committee member"
+            ],
+            "email": "chenjingc@uniontech.com"
+          },
+          {
+            "name": "Cui Ji",
+            "position": [
+              "Committee member"
+            ],
+            "email": "cuiji@beyondcent.com"
+          },
+          {
+            "name": "Du Shaohui",
+            "position": [
+              "Committee member"
+            ],
+            "email": "dush1@csg.cn"
+          },
+          {
+            "name": "Gong Chenpeng",
+            "position": [
+              "Committee member"
+            ],
+            "email": "4705317@QQ.com"
+          },
+          {
+            "name": "Gao Honghe",
+            "position": [
+              "Committee member"
+            ],
+            "email": "gaohonghe@kylinsec.com.cn"
+          },
+          {
+            "name": "Hu Yong",
+            "position": [
+              "Committee member"
+            ],
+            "email": "yong.hu@intel.com"
+          },
+          {
+            "name": "Li Chenbin",
+            "position": [
+              "Committee member"
+            ],
+            "email": "cbli@linx-info.com"
+          },
+          {
+            "name": "Li Rongqing",
+            "position": [
+              "Committee member"
+            ],
+            "email": "lirongqing@baidu.com"
+          },
+          {
+            "name": "Rong Tao",
+            "position": [
+              "Committee member"
+            ],
+            "email": "rongtao@cestc.cn"
+          },
+          {
+            "name": "Shi Guangyin",
+            "position": [
+              "Committee member"
+            ],
+            "email": "shiguangyin@inspur.com"
+          },
+          {
+            "name": "Xu Lei",
+            "position": [
+              "Committee member"
+            ],
+            "email": "stone.xulei@xfusion.com"
+          },
+          {
+            "name": "Xu Tianyuan",
+            "position": [
+              "Committee member"
+            ],
+            "email": "xu.tianyuan@h3c.com"
+          },
+          {
+            "name": "Zhang Jian",
+            "position": [
+              "Committee member"
+            ],
+            "email": "zhang_jian7@hoperun.com"
+          },
+          {
+            "name": "Zhang Qingnan",
+            "position": [
+              "Committee member"
+            ],
+            "email": "zhangqingnan001@chinasofti.com"
+          },
+          {
+            "name": "Zheng Zhenyu",
+            "position": [
+              "Committee member"
+            ],
+            "email": "zhengzhenyu@openeuler.sh"
+          },
+          {
+            "name": "Zhu Chen",
+            "position": [
+              "Committee member"
+            ],
+            "email": "zhuchen@kylinos.cn"
+          }
+        ]
+      }
+    ]
+  }
+}
