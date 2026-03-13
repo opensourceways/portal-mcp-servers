@@ -1,0 +1,34 @@
+{
+  "name": "openeuler-portal-mcp",
+  "version": "0.6.0",
+  "description": "openEuler Portal MCP server - 提供openEuler官网相关信息的查询功能",
+  "main": "src/index.js",
+  "type": "module",
+  "bin": {
+    "openeuler-portal-mcp": "src/index.js"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "start:sse": "node src/index.js --sse",
+    "start:stdio": "node src/index.js"
+  },
+  "keywords": [
+    "mcp",
+    "openEuler",
+    "server"
+  ],
+  "author": "sig-OpenDesign",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gzbang/openEuler-portal-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gzbang/openEuler-portal-mcp/issues"
+  },
+  "homepage": "https://github.com/gzbang/openEuler-portal-mcp#readme",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.26.0",
+    "glob": "^11.0.0"
+  }
+}
