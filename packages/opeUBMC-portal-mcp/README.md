@@ -9,38 +9,173 @@ openUBMC Model Context Protocol (MCP) Server，为 Claude 等 AI 工具提供 op
 - **Node.js**: >= 18.0.0
 - **npm**: >= 9.0.0
 
-## 安装
-
-```bash
-npm install
-```
-
-## 启动
-
-```bash
-# Stdio 模式（用于 Cursor / Claude Code）
-npm start
-
-# SSE 模式（用于远程连接）
-npm run start:sse
-```
-
 ## 配置
 
 ### Claude Code (终端 CLI)
 
-```bash
-claude mcp add openubmc-portal-mcp -- node /path/to/openubmc-portal-mcp/src/index.js
-```
+编辑配置文件：
+- macOS/Linux: `~/.claude.json`
+- Windows: `%USERPROFILE%\.claude.json`
 
-### Cursor
-
-在 `.cursor/mcp.json` 中添加：
+**使用 npx：**
 
 ```json
 {
   "mcpServers": {
-    "openubmc-portal-mcp": {
+    "openubmc-portal": {
+      "command": "npx",
+      "args": ["-y", "openubmc-portal-mcp"]
+    }
+  }
+}
+```
+
+**使用全局安装：**
+
+```json
+{
+  "mcpServers": {
+    "openubmc-portal": {
+      "command": "openubmc-portal-mcp"
+    }
+  }
+}
+```
+
+**使用本地路径：**
+
+```json
+{
+  "mcpServers": {
+    "openubmc-portal": {
+      "command": "node",
+      "args": ["/path/to/openubmc-portal-mcp/src/index.js"]
+    }
+  }
+}
+```
+
+### Cursor
+
+在 Cursor 的 MCP 配置中添加：
+
+**使用 npx：**
+
+```json
+{
+  "mcpServers": {
+    "openubmc-portal": {
+      "command": "npx",
+      "args": ["-y", "openubmc-portal-mcp"]
+    }
+  }
+}
+```
+
+**使用全局安装：**
+
+```json
+{
+  "mcpServers": {
+    "openubmc-portal": {
+      "command": "openubmc-portal-mcp"
+    }
+  }
+}
+```
+
+**使用本地路径：**
+
+```json
+{
+  "mcpServers": {
+    "openubmc-portal": {
+      "command": "node",
+      "args": ["/path/to/openubmc-portal-mcp/src/index.js"]
+    }
+  }
+}
+```
+
+### Cline (VS Code Extension)
+
+在 VS Code 设置中配置 MCP servers：
+
+**使用 npx：**
+
+```json
+{
+  "mcpServers": {
+    "openubmc-portal": {
+      "command": "npx",
+      "args": ["-y", "openubmc-portal-mcp"]
+    }
+  }
+}
+```
+
+**使用全局安装：**
+
+```json
+{
+  "mcpServers": {
+    "openubmc-portal": {
+      "command": "openubmc-portal-mcp"
+    }
+  }
+}
+```
+
+**使用本地路径：**
+
+```json
+{
+  "mcpServers": {
+    "openubmc-portal": {
+      "command": "node",
+      "args": ["/path/to/openubmc-portal-mcp/src/index.js"]
+    }
+  }
+}
+```
+
+
+
+### Trae-CN
+
+在 trae 设置中配置 MCP servers：
+
+**使用 npx：**
+
+```json
+{
+  "mcpServers": {
+    "openubmc-portal": {
+      "command": "npx",
+      "args": ["-y", "openubmc-portal-mcp"]
+    }
+  }
+}
+```
+
+**使用全局安装：**
+
+```json
+{
+  "mcpServers": {
+    "openubmc-portal": {
+      "command": "openubmc-portal-mcp"
+    }
+  }
+}
+```
+
+**使用本地路径：**
+
+```json
+{
+  "mcpServers": {
+    "openubmc-portal": {
       "command": "node",
       "args": ["/path/to/openubmc-portal-mcp/src/index.js"]
     }
@@ -133,59 +268,62 @@ claude mcp add openubmc-portal-mcp -- node /path/to/openubmc-portal-mcp/src/inde
 
 ### 3. 社区应用查询 (`get_app_info`)
 
-查询 openUBMC 社区发布的应用，包括开发工具（tooling）和社区组件（application），支持列表浏览和包详情查询。
+查询 openUBMC 社区发布的**可安装软件包**，包括开发工具（tooling）和社区组件（application），支持列表浏览和包详情查询。文档、教程类内容请用 `get_doc_info`。
 
 **何时使用：**
-- 用户想了解 openUBMC 社区有哪些开发工具或组件
-- 用户查询某个具体软件包的版本、描述或下载信息
-- 用户搜索与某关键词相关的社区应用
+- 用户想了解 openUBMC 社区有哪些开发工具或组件可以安装
+- 用户查询某个软件包的版本、安装方法或下载信息
+- 用户想知道某个包有哪些可用版本
 
 **参数：**
 - `query_type` (string, 可选): `"list"`（默认，列出所有应用）、`"detail"`（查询某包详情）
-- `pkg_name` (string, 详情查询时必填): 包名，支持模糊匹配（编辑距离 ≤ 3）
+- `package_name` (string, 详情查询时必填): 包名，大小写不敏感，支持模糊匹配（编辑距离 ≤ 3）
 - `list_type` (string, 可选): `"tooling"`（开发工具）、`"application"`（社区组件），不填则返回全部
-- `version` (string, 可选): 指定版本号，不填则返回最新版本
+- `version` (string, 可选): 指定版本号，不填则使用默认版本
 
 **特性：**
 - 分类浏览：按开发工具 / 社区组件两类展示
 - 模糊包名匹配：支持拼写错误和缩写（Levenshtein 编辑距离算法）
+- 安装指引：详情中展示包的安装方法（`usage` 字段）
 - 版本探索：自动列出包的所有可用版本
 - 15 分钟列表缓存
 
 **返回信息：**
-- 包名、版本、描述
+- 包名、版本、描述、安装指引
 - 包类型（开发工具 / 社区组件）
 - 可用版本列表
-- 详细元数据（维护者、依赖等）
+- 详细元数据（维护者、架构、下载地址、许可证等）
 
 **示例问题：**
-- "openUBMC 社区有哪些开发工具？"
-- "查询 busybox 包的详细信息"
-- "openUBMC 有哪些社区组件可用？"
+- "openUBMC 有哪些应用或组件可以安装？"
+- "openUBMC 有哪些开发工具？"
+- "BMC Studio 怎么安装？"
+- "查询 BMC Studio 的详细信息"
 - "busybox 有哪些可用版本？"
 
 ---
 
 ### 4. 文档搜索与内容获取 (`get_doc_info`)
 
-搜索 openUBMC 文档中心，支持目录浏览、关键词搜索和文档页面内容抓取，数据来源为本地 `data/llms.txt` 索引文件。
+搜索 openUBMC 文档中心，支持目录浏览、关键词搜索和文档页面内容抓取，数据来源为本地 `data/llms.txt` 索引文件（约 600 篇）。软件包安装信息请用 `get_app_info`。
 
 **何时使用：**
 - 用户询问技术问题，需要查找相关文档
 - 用户想浏览某个主题下的文档列表
-- 用户想获取某篇文档的具体内容
+- 用户想获取某篇文档的具体内容（步骤、命令、配置说明等）
 
 **参数：**
 - `query_type` (string, 可选): `"toc"`（默认，目录浏览）、`"search"`（关键词搜索）、`"fetch"`（抓取页面内容）、`"sections"`（列出所有章节）
-- `keyword` (string, 可选): 搜索关键词，支持多词（空格分隔，AND 逻辑）；fetch 模式下可用关键词自动匹配文档 URL
+- `keyword` (string, 可选): 搜索关键词，支持多词（空格分隔，AND 逻辑）
 - `section` (string, 可选): 章节名称过滤（部分匹配），用于 toc 模式
 - `lang` (string, 可选): 语言过滤，`"zh"`、`"en"`、`"all"`（默认）
-- `url` (string, 可选): 文档页面 URL，用于 fetch 模式直接抓取
+- `url` (string, 可选): 文档页面完整 URL，用于 fetch 模式直接抓取指定页面
 
 **特性：**
-- 本地索引：解析 `data/llms.txt`，约 600 篇文档，永久内存缓存
+- 本地索引优先：解析 `data/llms.txt`，约 600 篇文档，永久内存缓存，响应快
+- API 兜底：本地索引无结果时自动调用远程搜索 API，无需手动切换
+- 一步获取内容：`fetch` 模式传入 `keyword` 即可自动定位并抓取文档正文，无需先 search 再 fetch
 - 双语支持：自动识别中英文文档，支持按语言过滤
-- API 兜底：本地搜索无结果时自动调用远程搜索 API
 - 页面内容提取：将 VitePress 页面转换为可读 Markdown（含代码块、表格、告示框）
 - 安全限制：仅允许抓取 openubmc.cn 域名下的页面
 - 内容截断：页面内容超过 8000 字符时自动截断并提示
@@ -197,6 +335,7 @@ claude mcp add openubmc-portal-mcp -- node /path/to/openubmc-portal-mcp/src/inde
 **示例问题：**
 - "openUBMC 有哪些快速入门文档？"
 - "搜索关于网络配置的文档"
+- "openUBMC 如何构建 BMC？"（直接用 fetch+keyword 一步获取内容）
 - "给我看看 BMC 架构设计文档的内容"
 - "查找中文版的开发环境搭建指南"
 
