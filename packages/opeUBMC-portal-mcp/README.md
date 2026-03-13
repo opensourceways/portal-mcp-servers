@@ -398,7 +398,3 @@ node tests/getDocInfo.test.js
 4. 创建对应测试文件 `tests/getXxxInfo.test.js`
 5. 更新本文档的工具列表和详细说明
 6. 更新 `package.json` 版本号（新增工具为 minor 版本升级）
-
-## License
-
-MIT

@@ -71,10 +71,6 @@ portal-mcp-servers/
 
 请参阅对应子包目录下的 README 和贡献说明。
 
-## 许可证
-
-本仓库中各子包均采用 [MIT License](./packages/mindspore-portal-mcp/LICENSE)。
-
 ## 相关链接
 
 - [Model Context Protocol 官网](https://modelcontextprotocol.io/)
