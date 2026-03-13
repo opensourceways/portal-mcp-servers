@@ -262,6 +262,13 @@ function formatAppDetail(pkgName, version, detail, availableVersions) {
 
   if (name && name !== pkgName) out += `【名称】${name}\n`;
   if (desc) out += `【描述】${desc}\n`;
+
+  // 安装指引（usage 字段）
+  const usage = detail.usage || detail.install || detail.installGuide || detail.install_guide || "";
+  if (usage) {
+    out += `\n【安装指引】\n${usage}\n`;
+  }
+
   if (homepage) out += `【主页】${homepage}\n`;
   if (license) out += `【许可证】${license}\n`;
   if (maintainer) {
@@ -282,6 +289,7 @@ function formatAppDetail(pkgName, version, detail, availableVersions) {
     "size", "pkg_size", "publish_time", "publishTime", "updated_at", "updatedAt",
     "download_url", "downloadUrl", "sha256", "checksum", "version", "versions",
     "default_version", "defaultVersion",
+    "usage", "install", "installGuide", "install_guide",
   ]);
   const extraFields = Object.entries(detail).filter(
     ([k, v]) => !handledKeys.has(k) && v !== null && v !== undefined && v !== "" && !Array.isArray(v) && typeof v !== "object"
@@ -405,7 +413,10 @@ export async function getAppInfo(queryType = "list", packageName = "", version =
 // 工具定义
 export const toolDefinition = {
   name: "get_app_info",
-  description: `查询 openUBMC 社区的应用信息，包括开发工具和社区组件的列表及详情。
+  description: `查询 openUBMC 社区发布的可安装软件包，包括开发工具（tooling）和社区组件（application）的列表及详情。
+
+**本工具专门用于软件包查询，包含安装指引、下载地址、版本列表等信息。**
+如果用户询问的是文档内容、使用教程、架构说明，请用 get_doc_info，不要用本工具。
 
 **查询模式：**
 
@@ -415,7 +426,7 @@ export const toolDefinition = {
    - 不传 list_type 则返回全部两类应用
 
 2. 详情查询：query_type = "detail"
-   - 查询指定包的完整信息（描述、许可证、架构、下载地址等）
+   - 查询指定包的完整信息（描述、安装指引、许可证、架构、下载地址等）
    - 返回该包的所有可用版本列表
    - 不传 version 则使用该包的默认版本
    - 包名不区分大小写，支持模糊匹配（编辑距离）
@@ -426,17 +437,21 @@ export const toolDefinition = {
 - tooling：开发工具（如 IDE、编译器、调试工具等）
 - application：社区组件（如服务框架、中间件、库等）
 
-**使用场景：**
-- 查询 openUBMC 有哪些应用或工具
-- 查询某个应用包的详细信息（版本、下载地址、许可证等）
+**使用场景（以下情况必须用本工具，不要用 get_doc_info）：**
+- 查询 openUBMC 有哪些应用、组件、工具可以安装
+- 查询某个软件包的版本号、下载地址、安装方法
 - 了解某个包有哪些可用版本
-- 查找开发工具或社区组件
+- 查找开发工具或社区组件的详情
+
+**不适用场景：**
+- 查询文档、教程、API 参考 → 请用 get_doc_info
 
 **示例问题：**
-- "openUBMC 有哪些应用？"
-- "openUBMC 有哪些开发工具？"
+- "openUBMC 有哪些应用或组件？"
+- "openUBMC 有哪些开发工具可以安装？"
+- "BMC Studio 怎么安装？"
 - "BMC Studio 的最新版本是什么？"
-- "查询 BMC Studio 25.12 的详细信息"
+- "查询 BMC Studio 25.12 的详细信息和安装方法"
 - "openUBMC 的社区组件有哪些？"`,
   inputSchema: {
     type: "object",
