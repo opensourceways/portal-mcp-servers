@@ -163,7 +163,8 @@ function formatAppList(list, filterType) {
       const version = item.version || item.default_version || item.defaultVersion || "";
       const desc = item.description || item.desc || "";
       const shortDesc = desc.length > 60 ? desc.slice(0, 60) + "…" : desc;
-      out += `  ${i + 1}. **${name}**`;
+      const newBadge = item.is_new ? " 🆕" : "";
+      out += `  ${i + 1}. **${name}**${newBadge}`;
       if (version) out += `  \`${version}\``;
       if (shortDesc) out += `\n     ${shortDesc}`;
       out += `\n`;
@@ -250,46 +251,87 @@ function formatAppDetail(pkgName, version, detail, availableVersions) {
 
   const name = detail.name || detail.pkg_name || pkgName;
   const desc = detail.description || detail.desc || "";
+  const descEn = detail.description_en || "";
   const homepage = detail.homepage || detail.url || detail.website || "";
+  const repoUrl = detail.repo_url || "";
   const license = detail.license || "";
-  const maintainer = detail.maintainer || detail.maintainers || "";
   const arch = detail.arch || detail.architecture || "";
   const os = detail.os || detail.platform || "";
   const size = detail.size || detail.pkg_size || "";
   const publishTime = detail.publish_time || detail.publishTime || detail.updated_at || detail.updatedAt || "";
-  const downloadUrl = detail.download_url || detail.downloadUrl || detail.url || "";
+  const downloadUrl = detail.download_url || detail.downloadUrl || "";
+  const downloadCmd = detail.download_cmd || "";
+  const appVersion = detail.app_version || "";
+  const releaseNote = detail.release_note || "";
   const sha256 = detail.sha256 || detail.checksum || "";
 
   if (name && name !== pkgName) out += `【名称】${name}\n`;
+  if (appVersion) out += `【应用版本】${appVersion}\n`;
+  if (detail.is_new) out += `【状态】🆕 新上架\n`;
   if (desc) out += `【描述】${desc}\n`;
+  if (descEn) out += `【描述（英文）】${descEn}\n`;
 
-  // 安装指引（usage 字段）
-  const usage = detail.usage || detail.install || detail.installGuide || detail.install_guide || "";
+  // 安装指引（usage 可能是数组或字符串）
+  const usageRaw = detail.usage || detail.install || detail.installGuide || detail.install_guide || "";
+  const usage = Array.isArray(usageRaw) ? usageRaw.join("") : usageRaw;
   if (usage) {
     out += `\n【安装指引】\n${usage}\n`;
   }
 
-  if (homepage) out += `【主页】${homepage}\n`;
-  if (license) out += `【许可证】${license}\n`;
-  if (maintainer) {
-    const maintainerStr = Array.isArray(maintainer) ? maintainer.join(", ") : maintainer;
-    out += `【维护者】${maintainerStr}\n`;
+  const usageEnRaw = detail.usage_en || "";
+  const usageEn = Array.isArray(usageEnRaw) ? usageEnRaw.join("") : usageEnRaw;
+  if (usageEn) {
+    out += `\n【安装指引（英文）】\n${usageEn}\n`;
   }
+
+  // 下载命令（比 download_url 更实用）
+  if (downloadCmd) out += `\n【安装命令】\n${downloadCmd}\n`;
+
+  if (homepage) out += `【主页】${homepage}\n`;
+  if (repoUrl && repoUrl !== homepage) out += `【代码仓库】${repoUrl}\n`;
+  if (downloadUrl) out += `【下载地址】${downloadUrl}\n`;
+  if (detail.download_url_cpio) out += `【下载地址（CPIO）】${detail.download_url_cpio}\n`;
+  if (detail.download_desc) out += `【下载说明】${detail.download_desc}\n`;
+  if (detail.download_desc_en) out += `【下载说明（英文）】${detail.download_desc_en}\n`;
+  if (license) out += `【许可证】${license}${detail.license_en && detail.license_en !== license ? ` (${detail.license_en})` : ""}\n`;
+  if (detail.dependency) out += `【依赖】${typeof detail.dependency === "object" ? JSON.stringify(detail.dependency) : detail.dependency}\n`;
+
+  // maintainer 可能是对象 {SiG, email, gitcode}、对象数组、或字符串
+  const maintainerRaw = detail.maintainer || detail.maintainers;
+  if (maintainerRaw) {
+    if (typeof maintainerRaw === "string") {
+      out += `【维护者】${maintainerRaw}\n`;
+    } else if (Array.isArray(maintainerRaw)) {
+      out += `【维护者】${maintainerRaw.map(m => (typeof m === "string" ? m : (m.gitee_id || m.name || JSON.stringify(m)))).join(", ")}\n`;
+    } else if (typeof maintainerRaw === "object") {
+      const parts = [];
+      if (maintainerRaw.SiG) parts.push(`SIG: ${maintainerRaw.SiG}`);
+      if (maintainerRaw.email) parts.push(`邮箱: ${maintainerRaw.email}`);
+      if (maintainerRaw.gitcode) parts.push(`仓库: ${maintainerRaw.gitcode}`);
+      out += `【维护者】${parts.join("  ")}\n`;
+    }
+  }
+
   if (arch) out += `【架构】${arch}\n`;
   if (os) out += `【操作系统】${os}\n`;
   if (size) out += `【大小】${size}\n`;
   if (publishTime) out += `【发布时间】${publishTime}\n`;
-  if (downloadUrl) out += `【下载地址】${downloadUrl}\n`;
   if (sha256) out += `【SHA256】${sha256}\n`;
+  if (releaseNote) out += `【Release Notes】${releaseNote}\n`;
 
   // 输出其他未覆盖的字段（过滤已处理和内部字段）
   const handledKeys = new Set([
-    "type", "name", "pkg_name", "description", "desc", "homepage", "url", "website",
-    "license", "maintainer", "maintainers", "arch", "architecture", "os", "platform",
+    "type", "name", "pkg_name", "description", "desc", "description_en",
+    "homepage", "url", "website", "repo_url",
+    "license", "license_en", "maintainer", "maintainers",
+    "arch", "architecture", "os", "platform",
     "size", "pkg_size", "publish_time", "publishTime", "updated_at", "updatedAt",
-    "download_url", "downloadUrl", "sha256", "checksum", "version", "versions",
-    "default_version", "defaultVersion",
-    "usage", "install", "installGuide", "install_guide",
+    "download_url", "downloadUrl", "download_cmd", "download_url_cpio",
+    "download_desc", "download_desc_en",
+    "sha256", "checksum", "version", "versions", "version_list",
+    "default_version", "defaultVersion", "app_version",
+    "usage", "install", "installGuide", "install_guide", "usage_en",
+    "release_note", "is_new", "dependency",
   ]);
   const extraFields = Object.entries(detail).filter(
     ([k, v]) => !handledKeys.has(k) && v !== null && v !== undefined && v !== "" && !Array.isArray(v) && typeof v !== "object"

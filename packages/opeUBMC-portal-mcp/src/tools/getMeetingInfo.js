@@ -123,11 +123,23 @@ function formatMeeting(meeting, index) {
   if (meeting.sig_name || meeting.group_name) {
     output += `   SIG 组: ${meeting.sig_name || meeting.group_name}\n`;
   }
+  if (meeting.sponsor) output += `   发起人: ${meeting.sponsor}\n`;
+  if (meeting.platform) output += `   会议平台: ${meeting.platform}\n`;
   if (meeting.date) output += `   日期: ${meeting.date}\n`;
 
   const start = meeting.start || meeting.start_time;
   const end = meeting.end || meeting.end_time;
   if (start || end) output += `   时间: ${start || '?'} - ${end || '?'}\n`;
+  if (meeting.duration_time && meeting.duration_time !== `${start}-${end}`) {
+    output += `   时长: ${meeting.duration_time}\n`;
+  }
+
+  if (meeting.is_cycle) {
+    output += `   循环会议: 是`;
+    if (meeting.cycle_start_date) output += `  (${meeting.cycle_start_date} 至 ${meeting.cycle_end_date || '?'})`;
+    output += `\n`;
+  }
+  if (meeting.is_record) output += `   已录制: 是\n`;
 
   if (meeting.agenda) {
     const agendaText = meeting.agenda.length > 100
@@ -136,8 +148,27 @@ function formatMeeting(meeting, index) {
     output += `   议程: ${agendaText}\n`;
   }
   if (meeting.etherpad) output += `   协作文档: ${meeting.etherpad}\n`;
-  if (meeting.url || meeting.meeting_url) output += `   会议链接: ${meeting.url || meeting.meeting_url}\n`;
-  if (meeting.video_url) output += `   视频回放: ${meeting.video_url}\n`;
+  if (meeting.email_list) output += `   邮件列表: ${meeting.email_list}\n`;
+
+  // 会议参会链接：优先 join_url，兼容旧字段
+  const joinUrl = meeting.join_url || meeting.url || meeting.meeting_url;
+  if (joinUrl) output += `   会议链接: ${joinUrl}\n`;
+
+  // 录像：优先从 obs_data 数组中取，兼容旧 video_url 字段
+  if (Array.isArray(meeting.obs_data) && meeting.obs_data.length > 0) {
+    const rec = meeting.obs_data[0];
+    if (rec.text_video_url) output += `   视频回放: ${rec.text_video_url}\n`;
+    if (rec.text_vtt_url) output += `   字幕/转写: ${rec.text_vtt_url}\n`;
+  } else if (meeting.video_url) {
+    output += `   视频回放: ${meeting.video_url}\n`;
+  }
+
+  // Bilibili 录像
+  if (Array.isArray(meeting.bili_data) && meeting.bili_data.length > 0) {
+    const bili = meeting.bili_data[0];
+    const biliUrl = bili.url || bili.bvid || bili.video_url;
+    if (biliUrl) output += `   Bilibili: ${biliUrl}\n`;
+  }
 
   return output;
 }

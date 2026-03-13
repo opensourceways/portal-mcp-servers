@@ -198,36 +198,42 @@ openUBMC Model Context Protocol (MCP) Server，为 Claude 等 AI 工具提供 op
 
 ### 1. SIG 信息查询 (`get_sig_info`)
 
-查询 openUBMC 技术特别兴趣小组（SIG）的详细信息，支持四种查询模式。
+查询 openUBMC 技术特别兴趣小组（SIG）的详细信息，支持 SIG 详情查询和成员贡献统计。
 
 **何时使用：**
 - 用户询问某个 SIG 的基本信息（maintainer、仓库列表）
 - 用户想了解某个 SIG 的成员贡献排行
-- 用户查询某个仓库属于哪个 SIG
-- 用户查询某个 maintainer 参与了哪些 SIG
+- 用户查询 openUBMC 有哪些 SIG 组
 
 **参数：**
-- `sig_name` (string, 必需): SIG 名称、仓库名或 maintainer ID，支持模糊匹配
-- `query_type` (string, 可选): `"sig"`（默认）、`"repos"`、`"maintainer"`、`"contribute"`
+- `sig_name` (string, 必需): SIG 组名称，大小写不敏感，自动修正大小写错误
+- `query_type` (string, 可选): `"sig"`（默认，SIG 详情）、`"contribute"`（成员贡献统计）
 - `contribute_type` (string, 可选): `"pr"`（默认）、`"issue"`、`"comment"`、`"all"`
 
 **特性：**
-- 智能查询：自动按顺序尝试 SIG 查询 → 仓库查询 → Maintainer 查询
-- 模糊匹配：大小写不敏感，支持去连字符匹配（如 `bmc-core` → `BMCCore`）
-- 名称建议：无精确匹配时自动推荐相似 SIG 名称
+- 全字段展示：直接从 SIG 列表 API 取完整对象，无冗余二次请求
+- 大小写自动修正：输入错误大小写也能匹配
+- 无匹配时返回完整 SIG 列表供选择
 - 15 分钟缓存，减少 API 调用
 
-**返回信息：**
-- SIG 名称、描述、邮件列表
-- Maintainer 列表及联系方式
+**返回信息（SIG 详情）：**
+- 名称、中英文描述、邮件列表、创建时间
+- 会议链接、讨论链接
+- Maintainers 列表（ID + 中文名 + 角色）
+- Maintainer 详细信息（gitcode_id、邮箱等）
+- Committers 列表（ID + 中文名）及详细信息
 - 管理的代码仓库（最多显示 20 个）
-- 成员贡献排行（PR/Issue/评审评论）
+- 分支管理信息
+- 会议议程（中英文）
+
+**返回信息（贡献统计）：**
+- 贡献者 ID、贡献次数、用户角色（committer/maintainer）
+- 支持 PR / Issue / 评审评论 / 全部类型一次查询
 
 **示例问题：**
 - "openUBMC 有哪些 SIG 组？"
-- "BMC SIG 的维护者是谁？"
-- "查询某个仓库属于哪些 SIG 组"
-- "查询某 SIG 的 PR 贡献排行"
+- "sig-hardware SIG 的维护者是谁？"
+- "查询 sig-hardware SIG 的 PR 贡献排行"
 
 ---
 
@@ -251,13 +257,16 @@ openUBMC Model Context Protocol (MCP) Server，为 Claude 等 AI 工具提供 op
 - 15 分钟缓存：SIG 列表数据缓存
 
 **返回信息：**
-- 会议议题（topic）
-- 所属 SIG 组
-- 会议日期和时间（开始/结束）
+- 会议议题（topic）、发起人、会议平台
+- 所属 SIG 组、邮件列表
+- 会议日期和时间（开始/结束）、时长
+- 循环会议标记及周期（开始/结束日期）
+- 录制状态标记
 - 会议议程摘要（最多 100 字符）
 - 协作文档链接（etherpad）
-- 会议参会链接
-- 视频回放链接
+- 会议参会链接（join_url）
+- 视频回放链接（obs_data）、字幕/转写链接
+- Bilibili 视频链接（如有）
 
 **示例问题：**
 - "2026年3月9日有哪些 openUBMC 社区会议？"
@@ -282,17 +291,21 @@ openUBMC Model Context Protocol (MCP) Server，为 Claude 等 AI 工具提供 op
 - `version` (string, 可选): 指定版本号，不填则使用默认版本
 
 **特性：**
-- 分类浏览：按开发工具 / 社区组件两类展示
+- 分类浏览：按开发工具 / 社区组件两类展示，新上架包标注 🆕 标记
 - 模糊包名匹配：支持拼写错误和缩写（Levenshtein 编辑距离算法）
-- 安装指引：详情中展示包的安装方法（`usage` 字段）
+- 安装指引：详情中展示中英文安装方法（`usage` / `usage_en` 字段）
 - 版本探索：自动列出包的所有可用版本
 - 15 分钟列表缓存
 
 **返回信息：**
-- 包名、版本、描述、安装指引
-- 包类型（开发工具 / 社区组件）
+- 包名、版本（应用版本 `app_version`）、中英文描述
+- 包类型（开发工具 / 社区组件）、新上架标记
+- 安装指引（中文 + 英文）、安装命令（`download_cmd`）
+- 主页、代码仓库、下载地址（含 CPIO 格式）、下载说明
+- 维护者（SIG、邮箱、仓库地址）
+- 架构、操作系统、包大小、发布时间、SHA256
+- 许可证（含英文对照）、依赖信息
 - 可用版本列表
-- 详细元数据（维护者、架构、下载地址、许可证等）
 
 **示例问题：**
 - "openUBMC 有哪些应用或组件可以安装？"
@@ -335,7 +348,7 @@ openUBMC Model Context Protocol (MCP) Server，为 Claude 等 AI 工具提供 op
 **示例问题：**
 - "openUBMC 有哪些快速入门文档？"
 - "搜索关于网络配置的文档"
-- "openUBMC 如何构建 BMC？"（直接用 fetch+keyword 一步获取内容）
+- "openUBMC 如何构建 BMC？"
 - "给我看看 BMC 架构设计文档的内容"
 - "查找中文版的开发环境搭建指南"
 
@@ -357,13 +370,10 @@ openubmc-portal-mcp/
 │   ├── llms.txt                # openUBMC 文档索引（llms.txt 标准格式，~600 篇）
 │   └── llms-full.txt           # 完整文档索引
 ├── tests/
-│   ├── getSigInfo.test.js      # getSigInfo 单元测试（12 个用例）
-│   ├── getMeetingInfo.test.js  # getMeetingInfo 单元测试（13 个用例）
+│   ├── getSigInfo.test.js      # getSigInfo 单元测试
+│   ├── getMeetingInfo.test.js  # getMeetingInfo 单元测试
 │   ├── getAppInfo.test.js      # getAppInfo 单元测试
 │   └── getDocInfo.test.js      # getDocInfo 单元测试
-├── .claude/
-│   └── skills/
-│       └── community-mcp-builder/  # MCP Server 开发 Skill（供 Claude AI 使用）
 ├── CLAUDE.md                   # AI 开发规范
 ├── package.json
 ├── LICENSE

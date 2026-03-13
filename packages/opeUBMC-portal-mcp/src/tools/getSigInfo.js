@@ -1,17 +1,17 @@
 /**
  * @created 2026-03-09 by sig-OpenDesign with Claude AI
- * @modified 2026-03-09 by sig-OpenDesign with Claude AI
+ * @modified 2026-03-13 by sig-OpenDesign with Claude AI
  * @description SIG 信息查询工具，支持 SIG 信息查询和成员贡献统计
+ *   列表 API 已包含所有 SIG 字段，缓存完整对象，无需再调详情 API
  */
 
 // 数据源 URL
 const SIG_LIST_URL = "https://www.openubmc.cn/api-magic/stat/sig/info?community=openubmc";
-const SIG_DETAIL_URL = "https://www.openubmc.cn/api-magic/openubmc/sig/info";
 const SIG_CONTRIBUTE_URL = "https://www.openubmc.cn/api-magic/stat_new/sig/user/contribute";
 
-// SIG 名称列表缓存
-let cachedSigNames = null;
-let sigNamesExpiry = 0;
+// SIG 完整数据缓存（列表 API 已包含所有字段）
+let cachedSigList = null;
+let sigListExpiry = 0;
 const CACHE_DURATION = 15 * 60 * 1000; // 15分钟
 
 // 贡献类型标签
@@ -23,14 +23,14 @@ const CONTRIBUTE_TYPE_LABELS = {
 
 // 清除缓存（仅供测试使用）
 export function _resetCache() {
-  cachedSigNames = null;
-  sigNamesExpiry = 0;
+  cachedSigList = null;
+  sigListExpiry = 0;
 }
 
-// 获取所有 SIG 名称列表（带缓存）
-async function fetchAllSigNames() {
+// 获取所有 SIG 完整数据（带缓存）
+async function fetchAllSigData() {
   const now = Date.now();
-  if (cachedSigNames && now < sigNamesExpiry) return cachedSigNames;
+  if (cachedSigList && now < sigListExpiry) return cachedSigList;
 
   const response = await fetch(SIG_LIST_URL, {
     signal: AbortSignal.timeout(15000),
@@ -41,52 +41,41 @@ async function fetchAllSigNames() {
   const data = await response.json();
   if (!data || data.code !== 1 || !data.data) return [];
 
-  let names = [];
+  let list = [];
   if (Array.isArray(data.data)) {
-    names = data.data.map(item => item.name || item.sig_name || item).filter(Boolean);
+    list = data.data;
   } else if (data.data.sig_list) {
-    names = data.data.sig_list.map(item => item.name || item.sig_name || item).filter(Boolean);
+    list = data.data.sig_list;
   }
 
-  cachedSigNames = names;
-  sigNamesExpiry = now + CACHE_DURATION;
-  return names;
+  cachedSigList = list;
+  sigListExpiry = now + CACHE_DURATION;
+  return list;
 }
 
 /**
- * 从 SIG 列表中匹配名称：
+ * 从 SIG 列表中查找匹配项，返回完整 SIG 对象：
  * - 精确匹配 → 直接返回
- * - 仅大小写不同 → 返回正确名称
- * - 无匹配 → 返回 null（调用方负责展示完整列表）
+ * - 仅大小写不同 → 返回正确对象
+ * - 无匹配 → sig 为 null（调用方负责展示完整列表）
  */
-async function resolveSigName(input) {
-  const sigNames = await fetchAllSigNames();
-  if (!sigNames || sigNames.length === 0) return { resolved: null, list: [] };
+async function resolveSig(input) {
+  const list = await fetchAllSigData();
+  if (!list || list.length === 0) return { sig: null, list: [] };
+
+  const getName = (item) => item.name || item.sig_name || "";
 
   // 精确匹配
-  if (sigNames.includes(input)) return { resolved: input, list: sigNames };
+  const exact = list.find((item) => getName(item) === input);
+  if (exact) return { sig: exact, list };
 
   // 仅大小写不同
   const lower = input.toLowerCase();
-  const caseMatch = sigNames.find(n => n.toLowerCase() === lower);
-  if (caseMatch) return { resolved: caseMatch, list: sigNames };
+  const caseMatch = list.find((item) => getName(item).toLowerCase() === lower);
+  if (caseMatch) return { sig: caseMatch, list };
 
   // 无匹配
-  return { resolved: null, list: sigNames };
-}
-
-// 查询 SIG 详情（sigName 区分大小写）
-async function fetchSigDetail(sigName) {
-  const params = new URLSearchParams({ sigName });
-  const response = await fetch(`${SIG_DETAIL_URL}?${params}`, {
-    signal: AbortSignal.timeout(15000),
-  });
-
-  if (!response.ok) {
-    throw new Error(`API 请求失败：HTTP ${response.status}`);
-  }
-
-  return await response.json();
+  return { sig: null, list };
 }
 
 // 查询 SIG 成员贡献
@@ -117,9 +106,11 @@ function formatContributeSection(typeLabel, data) {
 
   let out = `\n**${typeLabel}（共 ${data.data.length} 人）：**\n`;
   data.data.slice(0, 20).forEach((item, i) => {
-    const user = item.gitee_id || item.user || item.name || "未知";
-    const count = item.contribute_count ?? item.count ?? item.num ?? "N/A";
-    out += `   ${i + 1}. ${user}  ${count} 次\n`;
+    // 真实 API 返回 user_login / contribute；兼容其他可能字段名
+    const user = item.user_login || item.gitee_id || item.atomgit_id || item.user || item.name || "未知";
+    const count = item.contribute ?? item.contribute_count ?? item.count ?? item.num ?? "N/A";
+    const role = item.usertype ? `  [${item.usertype}]` : "";
+    out += `   ${i + 1}. ${user}  ${count} 次${role}\n`;
   });
   if (data.data.length > 20) {
     out += `   ... 共 ${data.data.length} 人\n`;
@@ -127,49 +118,81 @@ function formatContributeSection(typeLabel, data) {
   return out;
 }
 
-// 格式化 SIG 信息输出
-function formatSigInfo(sigName, data) {
+// 格式化人员 ID（兼容字符串和对象两种格式）
+function formatPersonId(person) {
+  if (typeof person === "string") return person;
+  // 优先取平台 ID，附加中文名
+  const id = person.gitcode_id || person.gitee_id || person.atomgit_id || person.user_login || "";
+  const name = person.name || "";
+  if (id && name) return `${id}（${name}）`;
+  return id || name || "(未知)";
+}
+
+// 格式化 SIG 完整信息输出（展示所有 API 字段）
+function formatSigInfo(data) {
+  const sigName = data.name || data.sig_name || "未知";
   const sections = [];
+
   sections.push(`
 ╔════════════════════════════════════════════════════════════╗
-║  ${sigName} SIG 信息                                         ║
+║  ${sigName} SIG 信息
 ╚════════════════════════════════════════════════════════════╝`);
 
+  // ── 基本信息 ──
   if (data.name) sections.push(`\n【名称】${data.name}`);
-  if (data.description) sections.push(`\n【描述】${data.description}`);
+  if (data.description) sections.push(`\n【描述（中文）】${data.description}`);
+  if (data.description_en) sections.push(`\n【描述（英文）】${data.description_en}`);
   if (data.mailing_list) sections.push(`\n【邮件列表】${data.mailing_list}`);
+  if (data.created_on) sections.push(`\n【创建时间】${data.created_on}`);
+  if (data.meeting_url) sections.push(`\n【会议链接】${data.meeting_url}`);
+  if (data.discuss_url) sections.push(`\n【讨论链接】${data.discuss_url}`);
 
+  // ── Maintainers ──
   if (data.maintainers && data.maintainers.length > 0) {
     sections.push(`\n【Maintainers】(${data.maintainers.length} 人)`);
-    data.maintainers.forEach((m, i) => sections.push(`  ${i + 1}. ${m}`));
+    data.maintainers.forEach((m, i) => {
+      if (typeof m === "string") {
+        sections.push(`  ${i + 1}. ${m}`);
+      } else {
+        const id = m.gitee_id || m.atomgit_id || m.user_login || m.name || "(未知)";
+        const email = m.email ? `  <${m.email}>` : "";
+        sections.push(`  ${i + 1}. ${id}${email}`);
+      }
+    });
   }
 
   if (data.maintainer_info && data.maintainer_info.length > 0) {
     sections.push(`\n【Maintainer 详细信息】`);
     data.maintainer_info.forEach((info, i) => {
-      sections.push(`  ${i + 1}. ${info.name || info.user_login}`);
+      const id = info.gitcode_id || info.gitee_id || info.atomgit_id || info.user_login || "";
+      const name = info.name || "";
+      const display = id && name ? `${id}（${name}）` : (id || name || "(未知)");
+      const role = info.role ? `  [${info.role}]` : "";
+      sections.push(`  ${i + 1}. ${display}${role}`);
       if (info.email) sections.push(`     邮箱: ${info.email}`);
+      if (info.organization) sections.push(`     组织: ${info.organization}`);
       if (info.user_homepage_url) sections.push(`     主页: ${info.user_homepage_url}`);
     });
   }
 
-  if (data.repositories && data.repositories.length > 0) {
-    sections.push(`\n【仓库】(${data.repositories.length} 个)`);
-    data.repositories.slice(0, 20).forEach((repo, i) => sections.push(`  ${i + 1}. ${repo}`));
-    if (data.repositories.length > 20) {
-      sections.push(`  ... 还有 ${data.repositories.length - 20} 个仓库`);
+  // ── Committers ──
+  if (data.committers && data.committers.length > 0) {
+    sections.push(`\n【Committers】(${data.committers.length} 人)`);
+    data.committers.slice(0, 20).forEach((c, i) => {
+      sections.push(`  ${i + 1}. ${formatPersonId(c)}`);
+    });
+    if (data.committers.length > 20) {
+      sections.push(`  ... 还有 ${data.committers.length - 20} 人`);
     }
   }
 
-  if (data.committers && data.committers.length > 0) {
-    sections.push(`\n【Committers】共 ${data.committers.length} 人`);
-  }
-
   if (data.committer_info && data.committer_info.length > 0) {
-    sections.push(`\n【活跃 Committers】(显示前 10 位)`);
+    sections.push(`\n【Committer 详细信息】(显示前 10 位)`);
     data.committer_info.slice(0, 10).forEach((info, i) => {
-      const name = info.name || info.user_login || info.gitee_id || info.atomgit_id;
-      sections.push(`  ${i + 1}. ${name}`);
+      const id = info.gitcode_id || info.gitee_id || info.atomgit_id || info.user_login || "";
+      const name = info.name || "";
+      const display = id && name ? `${id}（${name}）` : (id || name || "(未知)");
+      sections.push(`  ${i + 1}. ${display}`);
       if (info.email) sections.push(`     邮箱: ${info.email}`);
       if (info.organization) sections.push(`     组织: ${info.organization}`);
     });
@@ -178,13 +201,32 @@ function formatSigInfo(sigName, data) {
     }
   }
 
+  // ── 仓库 ──
+  if (data.repositories && data.repositories.length > 0) {
+    // 过滤掉 person 对象（API 偶发数据异常），只展示字符串和有 repo 路径的对象
+    const repos = data.repositories.filter(r => typeof r === "string" || r.name?.includes("/") || r.repo || r.path);
+    const persons = data.repositories.filter(r => typeof r === "object" && r !== null && !r.name?.includes("/") && !r.repo && !r.path);
+    sections.push(`\n【仓库】(${repos.length} 个)`);
+    repos.slice(0, 20).forEach((repo, i) => {
+      const name = typeof repo === "string" ? repo : (repo.name || repo.repo || repo.path || "");
+      sections.push(`  ${i + 1}. ${name}`);
+    });
+    if (repos.length > 20) sections.push(`  ... 还有 ${repos.length - 20} 个仓库`);
+    // 如果有误混入的 person 对象，单独提示
+    if (persons.length > 0) {
+      const ids = persons.map(p => formatPersonId(p)).join("、");
+      sections.push(`  ⚠️ 以下条目疑似数据异常（非仓库）：${ids}`);
+    }
+  }
+
+  // ── 分支管理 ──
   if (data.branches && data.branches.length > 0) {
     sections.push(`\n【分支管理】(${data.branches.length} 个分支组)`);
     data.branches.slice(0, 3).forEach((branch, i) => {
       if (branch.repo_branch && branch.repo_branch.length > 0) {
         sections.push(`  分支组 ${i + 1}: ${branch.repo_branch.length} 个仓库分支`);
         if (branch.keeper && branch.keeper.length > 0) {
-          const keepers = branch.keeper.map(k => k.gitee_id || k.atomgit_id).join(", ");
+          const keepers = branch.keeper.map((k) => formatPersonId(k)).join(", ");
           sections.push(`    维护者: ${keepers}`);
         }
       }
@@ -192,21 +234,47 @@ function formatSigInfo(sigName, data) {
     if (data.branches.length > 3) sections.push(`  ... 还有 ${data.branches.length - 3} 个分支组`);
   }
 
+  // ── 会议议程 ──
+  if (data.meeting_agenda && data.meeting_agenda.length > 0) {
+    sections.push(`\n【会议议程（中文）】`);
+    data.meeting_agenda.slice(0, 5).forEach((item, i) => {
+      const title = item.topic || item.title || item.name || (typeof item === "string" ? item : JSON.stringify(item));
+      const date = item.date || item.meeting_date || "";
+      sections.push(`  ${i + 1}. ${title}${date ? `  (${date})` : ""}`);
+    });
+    if (data.meeting_agenda.length > 5) {
+      sections.push(`  ... 还有 ${data.meeting_agenda.length - 5} 项`);
+    }
+  }
+
+  if (data.meeting_agenda_en && data.meeting_agenda_en.length > 0) {
+    sections.push(`\n【会议议程（英文）】`);
+    data.meeting_agenda_en.slice(0, 5).forEach((item, i) => {
+      const title = item.topic || item.title || item.name || (typeof item === "string" ? item : JSON.stringify(item));
+      const date = item.date || item.meeting_date || "";
+      sections.push(`  ${i + 1}. ${title}${date ? `  (${date})` : ""}`);
+    });
+    if (data.meeting_agenda_en.length > 5) {
+      sections.push(`  ... 还有 ${data.meeting_agenda_en.length - 5} 项`);
+    }
+  }
+
   sections.push(`\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
   sections.push(`💡 提示：可用 query_type="contribute" 查询该 SIG 的成员贡献统计。`);
   sections.push(`数据来源: openUBMC SIG 数据平台`);
-  sections.push(`查询时间: ${new Date().toLocaleString('zh-CN')}`);
+  sections.push(`查询时间: ${new Date().toLocaleString("zh-CN")}`);
   sections.push(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
 
   return sections.join("\n");
 }
 
 // 格式化 SIG 列表输出（名称未匹配时返回完整列表）
-function formatSigList(input, list) {
+function formatSigList(input, sigObjects) {
+  const names = sigObjects.map((item) => item.name || item.sig_name || "").filter(Boolean);
   let out = `=== openUBMC SIG 列表 ===\n\n`;
   out += `未找到名称为 "${input}" 的 SIG 组（注意：名称区分大小写）。\n\n`;
-  out += `当前共有 ${list.length} 个 SIG 组：\n\n`;
-  list.forEach((name, i) => { out += `  ${i + 1}. ${name}\n`; });
+  out += `当前共有 ${names.length} 个 SIG 组：\n\n`;
+  names.forEach((name, i) => { out += `  ${i + 1}. ${name}\n`; });
   out += `\n💡 请从以上列表中选择正确的 SIG 名称重新查询。\n`;
   return out;
 }
@@ -215,11 +283,12 @@ function formatSigList(input, list) {
 export async function getSigInfo(sigName, queryType = "sig", contributeType = "pr") {
   try {
     // ===== 名称解析（SIG 查询和贡献查询共用）=====
-    const { resolved, list } = await resolveSigName(sigName);
+    const { sig, list } = await resolveSig(sigName);
+    const resolvedName = sig ? (sig.name || sig.sig_name || sigName) : null;
 
     // ===== 贡献查询模式 =====
     if (queryType === "contribute") {
-      if (!resolved) {
+      if (!resolvedName) {
         return formatSigList(sigName, list);
       }
 
@@ -227,12 +296,12 @@ export async function getSigInfo(sigName, queryType = "sig", contributeType = "p
 
       if (contributeType === "all") {
         const [prData, issueData, commentData] = await Promise.all([
-          fetchSigContribute(resolved, "pr"),
-          fetchSigContribute(resolved, "issue"),
-          fetchSigContribute(resolved, "comment"),
+          fetchSigContribute(resolvedName, "pr"),
+          fetchSigContribute(resolvedName, "issue"),
+          fetchSigContribute(resolvedName, "comment"),
         ]);
 
-        let output = `=== ${resolved} SIG 成员贡献统计（全部类型）===\n`;
+        let output = `=== ${resolvedName} SIG 成员贡献统计（全部类型）===\n`;
         output += `时间范围：全部\n`;
         output += formatContributeSection(CONTRIBUTE_TYPE_LABELS.pr, prData);
         output += formatContributeSection(CONTRIBUTE_TYPE_LABELS.issue, issueData);
@@ -242,8 +311,8 @@ export async function getSigInfo(sigName, queryType = "sig", contributeType = "p
         return output;
       }
 
-      const data = await fetchSigContribute(resolved, contributeType);
-      let output = `=== ${resolved} SIG 成员贡献统计 ===\n\n`;
+      const data = await fetchSigContribute(resolvedName, contributeType);
+      let output = `=== ${resolvedName} SIG 成员贡献统计 ===\n\n`;
       output += `贡献类型：${typeLabel}\n`;
       output += `时间范围：全部\n`;
       output += formatContributeSection(typeLabel, data);
@@ -255,18 +324,12 @@ export async function getSigInfo(sigName, queryType = "sig", contributeType = "p
     }
 
     // ===== 默认：SIG 详情查询模式 =====
-    if (!resolved) {
+    if (!sig) {
       return formatSigList(sigName, list);
     }
 
-    // 使用解析后的正确名称查询详情（区分大小写）
-    const detailData = await fetchSigDetail(resolved);
-
-    if (detailData && detailData.code === 1 && detailData.data) {
-      return formatSigInfo(resolved, detailData.data);
-    }
-
-    return `未能获取 "${resolved}" SIG 的详细信息，请稍后重试。`;
+    // 直接使用缓存的完整 SIG 对象，无需再次调用 API
+    return formatSigInfo(sig);
   } catch (e) {
     if (e.name === "AbortError") return "网络请求超时，请稍后重试。";
     return `获取 SIG 信息时发生错误：${e.message}`;
@@ -281,7 +344,7 @@ export const toolDefinition = {
 **查询模式：**
 
 1. SIG 详情查询（默认）：query_type = "sig"
-   - 查询指定 SIG 组的基本信息（名称、描述、Maintainers、仓库列表等）
+   - 查询指定 SIG 组的完整信息（名称、描述、Maintainers、Committers、仓库列表、会议议程、讨论链接等）
    - SIG 名称区分大小写，系统会自动修正大小写错误
    - 若名称不在 SIG 列表中，返回完整 SIG 列表供用户选择
 
