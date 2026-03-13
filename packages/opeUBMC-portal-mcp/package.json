@@ -18,7 +18,6 @@
     "server"
   ],
   "author": "sig-OpenDesign",
-  "license": "MIT",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.26.0"
   }
